@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <resource-ref>
+        <description>DB Connection Pool</description>
+        <res-ref-name>jdbc/UserManagementDB</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/pages/error/error_404.jsp</location>  <!-- Убрали /pages/error/ -->
+    </error-page>
+
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/pages/error/error_500.jsp</location>  <!-- Убрали /pages/error/ -->
+    </error-page>
+</web-app>

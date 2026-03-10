@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <Resource
+            name="jdbc/UserManagementDB"
+            auth="Container"
+            type="javax.sql.DataSource"
+            driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+            url="jdbc:sqlserver://ZHENIA;instanceName=SQLEXPRESS02;databaseName=UserManagementDB;encrypt=true;trustServerCertificate=true;"
+            username="app_user"
+            password="123456"
+            maxActive="20"
+            maxIdle="10"
+            maxWait="10000"
+            removeAbandoned="true"
+            removeAbandonedTimeout="60"
+            logAbandoned="true"
+            validationQuery="SELECT 1"
+            testOnBorrow="true"
+    />
+</Context>

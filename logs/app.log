@@ -1,0 +1,123 @@
+2026-03-04 17:26:19.506 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Инициализация Controller
+2026-03-04 17:26:19.516 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Controller инициализирован
+2026-03-04 17:26:19.517 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Получена команда: login
+2026-03-04 17:26:20.086 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Страница для перехода: pages/main.jsp
+2026-03-04 17:26:22.280 [http-nio-8080-exec-9] INFO  com.example.demo.controller.Controller - Получена команда: logout
+2026-03-04 17:26:22.281 [http-nio-8080-exec-9] INFO  com.example.demo.controller.Controller - Страница для перехода: index.jsp
+2026-03-04 17:29:41.395 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Инициализация Controller
+2026-03-04 17:29:41.402 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Controller инициализирован
+2026-03-04 17:29:41.404 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Получена команда: login
+2026-03-04 17:29:42.015 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Страница для перехода: pages/main.jsp
+2026-03-04 17:29:43.591 [http-nio-8080-exec-3] INFO  com.example.demo.controller.Controller - Получена команда: logout
+2026-03-04 17:29:43.591 [http-nio-8080-exec-3] INFO  com.example.demo.controller.Controller - Страница для перехода: index.jsp
+2026-03-04 17:29:46.108 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Получена команда: login
+2026-03-04 17:29:46.161 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Страница для перехода: index.jsp
+2026-03-04 17:43:03.054 [http-nio-8080-exec-9] INFO  com.example.demo.controller.Controller - Инициализация Controller
+2026-03-04 17:43:03.065 [http-nio-8080-exec-9] INFO  com.example.demo.controller.Controller - Controller инициализирован
+2026-03-04 17:43:03.066 [http-nio-8080-exec-9] INFO  com.example.demo.controller.Controller - Получена команда: ADD_USER
+2026-03-04 17:43:04.015 [http-nio-8080-exec-9] INFO  com.example.demo.controller.Controller - Страница для перехода: pages/register.jsp
+2026-03-04 17:43:25.060 [http-nio-8080-exec-3] INFO  com.example.demo.controller.Controller - Получена команда: login
+2026-03-04 17:43:25.140 [http-nio-8080-exec-3] INFO  com.example.demo.controller.Controller - Страница для перехода: pages/main.jsp
+2026-03-04 17:43:32.557 [http-nio-8080-exec-7] INFO  com.example.demo.controller.Controller - Получена команда: logout
+2026-03-04 17:43:32.557 [http-nio-8080-exec-7] INFO  com.example.demo.controller.Controller - Страница для перехода: index.jsp
+2026-03-04 17:43:38.130 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Получена команда: login
+2026-03-04 17:43:38.184 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Страница для перехода: index.jsp
+2026-03-05 09:45:38.918 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Инициализация Controller
+2026-03-05 09:45:38.943 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Controller инициализирован
+2026-03-05 09:45:38.952 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Получена команда: login
+2026-03-05 09:45:40.475 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Страница для перехода: pages/main.jsp
+2026-03-05 09:45:42.847 [http-nio-8080-exec-2] INFO  com.example.demo.controller.Controller - Получена команда: logout
+2026-03-05 09:45:42.848 [http-nio-8080-exec-2] INFO  com.example.demo.controller.Controller - Страница для перехода: index.jsp
+2026-03-05 10:02:51.468 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Получена команда: login
+2026-03-05 10:02:51.850 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Страница для перехода: pages/main.jsp
+2026-03-05 10:02:53.659 [http-nio-8080-exec-9] INFO  com.example.demo.controller.Controller - Получена команда: logout
+2026-03-05 10:02:53.663 [http-nio-8080-exec-9] INFO  com.example.demo.controller.Controller - Страница для перехода: index.jsp
+2026-03-05 10:03:03.315 [http-nio-8080-exec-2] INFO  com.example.demo.controller.Controller - Получена команда: ADD_USER
+2026-03-05 10:03:03.523 [http-nio-8080-exec-2] INFO  com.example.demo.controller.Controller - Страница для перехода: pages/register.jsp
+2026-03-10 18:28:33.238 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Инициализация Controller
+2026-03-10 18:28:33.257 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Controller инициализирован
+2026-03-10 18:28:33.260 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Получена команда: login
+2026-03-10 18:28:34.502 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Страница для перехода: pages/main.jsp
+2026-03-10 18:28:36.564 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Получена команда: logout
+2026-03-10 18:28:36.565 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Страница для перехода: index.jsp
+2026-03-10 18:28:57.257 [http-nio-8080-exec-4] INFO  com.example.demo.controller.Controller - Получена команда: ADD_USER
+2026-03-10 18:28:57.838 [http-nio-8080-exec-4] INFO  com.example.demo.controller.Controller - Страница для перехода: pages/register.jsp
+2026-03-10 20:05:07.570 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - 🚀 Application starting...
+2026-03-10 20:05:07.584 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - ✅ Application started successfully
+2026-03-10 20:05:07.586 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPoolManager - Initializing Connection Pool...
+2026-03-10 20:05:07.620 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPoolManager - ✅ Driver loaded: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-03-10 20:05:08.306 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPoolManager - ✅ Connection Pool initialized successfully
+2026-03-10 20:05:08.306 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPoolManager -    Pool size: 20, Min idle: 5
+2026-03-10 20:05:08.311 [RMI TCP Connection(2)-127.0.0.1] DEBUG com.example.demo.db.ConnectionPoolManager - Connection obtained. Active: 1, Idle: 0
+2026-03-10 20:05:08.312 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPoolManager - ✅ Test connection successful
+2026-03-10 20:05:08.323 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Initial pool stats: Active: 0, Idle: 1, Total: 1, Waiting: 0
+2026-03-10 20:05:34.435 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Initializing Controller
+2026-03-10 20:05:34.437 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Controller initialized successfully
+2026-03-10 20:05:34.452 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Received command: login
+2026-03-10 20:05:34.494 [http-nio-8080-exec-10] DEBUG com.example.demo.command.CommandType - Command resolved: login
+2026-03-10 20:05:34.494 [http-nio-8080-exec-10] INFO  com.example.demo.command.impl.LoginCommand - Login attempt for user: admin
+2026-03-10 20:05:34.506 [http-nio-8080-exec-10] DEBUG com.example.demo.service.impl.UserServiceImpl - UserServiceImpl instance created
+2026-03-10 20:05:34.506 [http-nio-8080-exec-10] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: admin
+2026-03-10 20:05:34.506 [http-nio-8080-exec-10] INFO  com.example.demo.dao.impl.UserDaoImpl - Authentication attempt for user: admin
+2026-03-10 20:05:34.523 [http-nio-8080-exec-10] DEBUG com.example.demo.db.ConnectionPoolManager - Connection obtained. Active: 1, Idle: 4
+2026-03-10 20:05:34.707 [http-nio-8080-exec-10] DEBUG com.example.demo.util.PasswordUtil - Checking password
+2026-03-10 20:05:34.815 [http-nio-8080-exec-10] DEBUG com.example.demo.util.PasswordUtil - Password match: true
+2026-03-10 20:05:34.816 [http-nio-8080-exec-10] INFO  com.example.demo.dao.impl.UserDaoImpl - User admin authenticated successfully
+2026-03-10 20:05:34.824 [http-nio-8080-exec-10] INFO  com.example.demo.command.impl.LoginCommand - User admin logged in successfully
+2026-03-10 20:05:34.826 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/main.jsp
+2026-03-10 20:05:36.769 [http-nio-8080-exec-1] INFO  com.example.demo.controller.Controller - Received command: logout
+2026-03-10 20:05:36.769 [http-nio-8080-exec-1] DEBUG com.example.demo.command.CommandType - Command resolved: logout
+2026-03-10 20:05:36.770 [http-nio-8080-exec-1] INFO  com.example.demo.command.impl.LogoutCommand - User null logged out
+2026-03-10 20:05:36.770 [http-nio-8080-exec-1] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-03-10 20:05:49.258 [main] INFO  com.example.demo.listener.AppContextListener - 🛑 Application stopping...
+2026-03-10 20:05:49.259 [main] INFO  com.example.demo.listener.AppContextListener - Final pool stats: Active: 0, Idle: 5, Total: 5, Waiting: 0
+2026-03-10 20:05:49.260 [main] INFO  com.example.demo.db.ConnectionPoolManager - Shutting down Connection Pool...
+2026-03-10 20:05:49.270 [main] INFO  com.example.demo.db.ConnectionPoolManager - ✅ DataSource closed
+2026-03-10 20:05:49.270 [main] INFO  com.example.demo.db.ConnectionPoolManager - Deregistering JDBC drivers...
+2026-03-10 20:05:49.271 [main] INFO  com.example.demo.db.ConnectionPoolManager - ✅ Deregistered driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-03-10 20:05:49.271 [main] INFO  com.example.demo.db.ConnectionPoolManager - ✅ Connection Pool shutdown complete
+2026-03-10 20:05:49.271 [main] INFO  com.example.demo.listener.AppContextListener - ✅ Application stopped cleanly
+2026-03-10 20:11:49.889 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - 🚀 Application starting...
+2026-03-10 20:11:49.899 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application started successfully
+2026-03-10 20:11:49.901 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPoolManager - Initializing Connection Pool...
+2026-03-10 20:11:49.927 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPoolManager - Driver loaded: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-03-10 20:11:50.542 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPoolManager - Connection Pool initialized successfully
+2026-03-10 20:11:50.542 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPoolManager -    Pool size: 20, Min idle: 5
+2026-03-10 20:11:50.547 [RMI TCP Connection(2)-127.0.0.1] DEBUG com.example.demo.db.ConnectionPoolManager - Connection obtained. Active: 1, Idle: 0
+2026-03-10 20:11:50.547 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPoolManager - Test connection successful
+2026-03-10 20:11:50.556 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Initial pool stats: Active: 0, Idle: 1, Total: 1, Waiting: 0
+2026-03-10 20:11:56.804 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Initializing Controller
+2026-03-10 20:11:56.804 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Controller initialized successfully
+2026-03-10 20:11:56.806 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Received command: login
+2026-03-10 20:11:56.816 [http-nio-8080-exec-6] DEBUG com.example.demo.command.CommandType - Command resolved: login
+2026-03-10 20:11:56.816 [http-nio-8080-exec-6] INFO  com.example.demo.command.impl.LoginCommand - Login attempt for user: admin
+2026-03-10 20:11:56.824 [http-nio-8080-exec-6] DEBUG com.example.demo.service.impl.UserServiceImpl - UserServiceImpl instance created
+2026-03-10 20:11:56.824 [http-nio-8080-exec-6] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: admin
+2026-03-10 20:11:56.824 [http-nio-8080-exec-6] INFO  com.example.demo.dao.impl.UserDaoImpl - Authentication attempt for user: admin
+2026-03-10 20:11:56.827 [http-nio-8080-exec-6] DEBUG com.example.demo.db.ConnectionPoolManager - Connection obtained. Active: 1, Idle: 4
+2026-03-10 20:11:56.954 [http-nio-8080-exec-6] DEBUG com.example.demo.util.PasswordUtil - Checking password
+2026-03-10 20:11:57.057 [http-nio-8080-exec-6] DEBUG com.example.demo.util.PasswordUtil - Password match: true
+2026-03-10 20:11:57.057 [http-nio-8080-exec-6] INFO  com.example.demo.dao.impl.UserDaoImpl - User admin authenticated successfully
+2026-03-10 20:11:57.190 [http-nio-8080-exec-6] INFO  com.example.demo.command.impl.LoginCommand - User admin logged in successfully
+2026-03-10 20:11:57.191 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/main.jsp
+2026-03-10 20:11:58.333 [http-nio-8080-exec-7] INFO  com.example.demo.controller.Controller - Received command: logout
+2026-03-10 20:11:58.333 [http-nio-8080-exec-7] DEBUG com.example.demo.command.CommandType - Command resolved: logout
+2026-03-10 20:11:58.333 [http-nio-8080-exec-7] INFO  com.example.demo.command.impl.LogoutCommand - User null logged out
+2026-03-10 20:11:58.334 [http-nio-8080-exec-7] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-03-10 20:12:04.082 [main] INFO  com.example.demo.listener.AppContextListener - Application stopping...
+2026-03-10 20:12:04.082 [main] INFO  com.example.demo.listener.AppContextListener - Final pool stats: Active: 0, Idle: 5, Total: 5, Waiting: 0
+2026-03-10 20:12:04.082 [main] INFO  com.example.demo.db.ConnectionPoolManager - Shutting down Connection Pool...
+2026-03-10 20:12:04.088 [main] INFO  com.example.demo.db.ConnectionPoolManager - DataSource closed
+2026-03-10 20:12:04.088 [main] INFO  com.example.demo.db.ConnectionPoolManager - Deregistering JDBC drivers...
+2026-03-10 20:12:04.089 [main] INFO  com.example.demo.db.ConnectionPoolManager - Deregistered driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-03-10 20:12:04.089 [main] INFO  com.example.demo.db.ConnectionPoolManager - Connection Pool shutdown complete
+2026-03-10 20:12:04.089 [main] INFO  com.example.demo.listener.AppContextListener - Application stopped cleanly
+2026-03-10 20:18:54.636 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - 🚀 Application starting...
+2026-03-10 20:18:54.652 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application started successfully
+2026-03-10 20:18:54.655 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPoolManager - Initializing Connection Pool...
+2026-03-10 20:18:54.687 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPoolManager - Driver loaded: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-03-10 20:18:55.705 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPoolManager - Connection Pool initialized successfully
+2026-03-10 20:18:55.705 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPoolManager -    Pool size: 20, Min idle: 5
+2026-03-10 20:18:55.712 [RMI TCP Connection(2)-127.0.0.1] DEBUG com.example.demo.db.ConnectionPoolManager - Connection obtained. Active: 1, Idle: 0
+2026-03-10 20:18:55.712 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPoolManager - Test connection successful
+2026-03-10 20:18:55.723 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Initial pool stats: Active: 0, Idle: 1, Total: 1, Waiting: 0
