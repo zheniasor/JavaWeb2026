@@ -1,11 +1,13 @@
 package com.example.demo.dao.impl;
 
+import com.example.demo.constants.ColumnName;
 import com.example.demo.dao.BaseDao;
 import com.example.demo.dao.UserDao;
-import com.example.demo.db.DatabaseConnector;
+import com.example.demo.db.ConnectionPool;
 import com.example.demo.entity.User;
 import com.example.demo.exception.DataException;
-import com.example.demo.util.PasswordUtil;
+import com.example.demo.util.PasswordEncoder;
+import com.example.demo.mapper.UserMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -25,15 +27,12 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
     private static final String INSERT = "INSERT INTO users (login, password) VALUES (?, ?)";
     private static final String UPDATE = "UPDATE users SET login = ?, password = ? WHERE id = ?";
     private static final String DELETE = "DELETE FROM users WHERE id = ?";
-    private static final String COLUMN_ID = "id";
-    private static final String COLUMN_LOGIN = "login";
-    private static final String COLUMN_PASSWORD = "password";
 
     @Override
     public boolean insert(User user) throws DataException {
         LOGGER.debug("Inserting user: {}", user.getLogin());
 
-        try (Connection connection = DatabaseConnector.getConnection();
+        try (Connection connection = ConnectionPool.getInstance().getConnection();
              PreparedStatement statement = connection.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS)) {
 
             statement.setString(1, user.getLogin());
@@ -68,19 +67,14 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
 
         LOGGER.debug("Attempting to delete user with ID: {}", user.getId());
 
-        try (Connection connection = DatabaseConnector.getConnection();
+        try (Connection connection = ConnectionPool.getInstance().getConnection();
              PreparedStatement statement = connection.prepareStatement(DELETE)) {
 
             statement.setInt(1, user.getId());
             int affectedRows = statement.executeUpdate();
 
-            if (affectedRows > 0) {
-                LOGGER.info("User deleted successfully with ID: {}", user.getId());
-                return true;
-            } else {
-                LOGGER.warn("No user found with ID: {} to delete", user.getId());
-                return false;
-            }
+            LOGGER.info("Delete operation for user ID: {} - {} rows affected", user.getId(), affectedRows);
+            return affectedRows > 0;
 
         } catch (SQLException e) {
             LOGGER.error("SQL Error deleting user with ID: " + user.getId(), e);
@@ -93,16 +87,12 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
         List<User> users = new ArrayList<>();
         LOGGER.debug("Fetching all users from database");
 
-        try (Connection connection = DatabaseConnector.getConnection();
+        try (Connection connection = ConnectionPool.getInstance().getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(SELECT_ALL)) {
 
             while (resultSet.next()) {
-                User user = new User();
-                user.setId(resultSet.getInt(COLUMN_ID));
-                user.setLogin(resultSet.getString(COLUMN_LOGIN));
-                user.setPassword(resultSet.getString(COLUMN_PASSWORD));
-                users.add(user);
+                users.add(UserMapper.mapRow(resultSet));
             }
 
             LOGGER.debug("Found {} users in database", users.size());
@@ -122,7 +112,7 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
 
         LOGGER.debug("Attempting to update user with ID: {}", user.getId());
 
-        try (Connection connection = DatabaseConnector.getConnection();
+        try (Connection connection = ConnectionPool.getInstance().getConnection();
              PreparedStatement statement = connection.prepareStatement(UPDATE)) {
 
             statement.setString(1, user.getLogin());
@@ -158,15 +148,15 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
 
         LOGGER.info("Authentication attempt for user: {}", login);
 
-        try (Connection connection = DatabaseConnector.getConnection();
+        try (Connection connection = ConnectionPool.getInstance().getConnection();
              PreparedStatement statement = connection.prepareStatement(SELECT_PASSWORD_BY_LOGIN)) {
 
             statement.setString(1, login);
 
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
-                    String hashedPassword = resultSet.getString(COLUMN_PASSWORD);
-                    boolean isAuthenticated = PasswordUtil.checkPassword(password, hashedPassword);
+                    String hashedPassword = resultSet.getString(ColumnName.PASSWORD);
+                    boolean isAuthenticated = PasswordEncoder.matches(password, hashedPassword);
 
                     if (isAuthenticated) {
                         LOGGER.info("User {} authenticated successfully", login);
@@ -196,17 +186,14 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
 
         LOGGER.debug("Finding user by login: {}", login);
 
-        try (Connection connection = DatabaseConnector.getConnection();
+        try (Connection connection = ConnectionPool.getInstance().getConnection();
              PreparedStatement statement = connection.prepareStatement(SELECT_BY_LOGIN)) {
 
             statement.setString(1, login);
 
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
-                    User user = new User();
-                    user.setId(resultSet.getInt(COLUMN_ID));
-                    user.setLogin(resultSet.getString(COLUMN_LOGIN));
-                    user.setPassword(resultSet.getString(COLUMN_PASSWORD));
+                    User user = UserMapper.mapRow(resultSet);
                     LOGGER.debug("User found with ID: {}", user.getId());
                     return Optional.of(user);
                 }

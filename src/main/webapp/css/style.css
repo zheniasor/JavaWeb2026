@@ -160,3 +160,21 @@ button {
 button:hover {
     background-color: #5a6268;
 }
+
+.hint {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+.example {
+    color: #3498db;
+    font-style: italic;
+}
+.requirements {
+    background-color: #f8f9fa;
+    border-left: 3px solid #3498db;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}

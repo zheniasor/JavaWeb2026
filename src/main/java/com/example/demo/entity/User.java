@@ -1,7 +1,5 @@
 package com.example.demo.entity;
 
-import java.util.Objects;
-
 public class User extends AbstractEntity {
     private int id;
     private String login;
@@ -40,19 +38,32 @@ public class User extends AbstractEntity {
 
     @Override
     public String toString() {
-        return "User{id=" + id + ", login='" + login + "'}";
+        final StringBuilder sb = new StringBuilder("User{");
+        sb.append("id=").append(id);
+        sb.append(", login='").append(login).append('\'');
+        sb.append(", password='").append(password).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         User user = (User) o;
-        return Objects.equals(login, user.login);
+
+         if (login == null) {
+            return user.login == null;
+        } else {
+            return login.equals(user.login);
+        }
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, login, password);
+        int result = 17;
+        result = 31 * result + (login != null ? login.hashCode() : 0);
+        return result;
     }
 }

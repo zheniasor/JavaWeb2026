@@ -1,7 +1,11 @@
 package com.example.demo.command.impl;
 
 import com.example.demo.command.Command;
+import com.example.demo.constants.PageConstants;
+import com.example.demo.constants.AttributeConstants;
+import com.example.demo.constants.ParameterConstants;
 import com.example.demo.entity.User;
+import com.example.demo.exception.DataException;
 import com.example.demo.service.UserService;
 import com.example.demo.service.impl.UserServiceImpl;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,68 +16,48 @@ public class AddUserCommand implements Command {
 
     private static final Logger LOGGER = LogManager.getLogger(AddUserCommand.class);
 
-    private static final String REGISTER_PAGE = "pages/register.jsp";
-    private static final String LOGIN_PARAM = "login";
-    private static final String PASSWORD_PARAM = "pass";
-    private static final String MESSAGE_ATTR = "message";
-    private static final String SUCCESS_MESSAGE = "User %s added successfully!";
-    private static final String ERROR_LOGIN_EMPTY = "Login cannot be empty";
-    private static final String ERROR_PASSWORD_EMPTY = "Password cannot be empty";
-    private static final String ERROR_LOGIN_TOO_SHORT = "Login must be at least 3 characters";
-    private static final String ERROR_LOGIN_TOO_LONG = "Login must not exceed 20 characters";
-    private static final String ERROR_PASSWORD_TOO_SHORT = "Password must be at least 3 characters";
-    private static final String ERROR_PASSWORD_TOO_LONG = "Password must not exceed 50 characters";
-    private static final String ERROR_USER_EXISTS = "User with this login already exists";
-    private static final String ERROR_INVALID_CHARACTERS = "Login contains invalid characters (only letters, numbers and underscore allowed)";
-    private static final String ERROR_MESSAGE_ATTR = "errorMessage";
-    private static final String ERROR_MESSAGE_GENERAL = "Registration failed";
+    private static final String LOGIN_PATTERN = "^[a-zA-Z0-9_]+$";
+    private static final int MIN_LOGIN_LENGTH = 3;
+    private static final int MAX_LOGIN_LENGTH = 20;
+    private static final int MIN_PASSWORD_LENGTH = 3;
+    private static final int MAX_PASSWORD_LENGTH = 50;
 
     @Override
     public String execute(HttpServletRequest request) {
-        String login = request.getParameter(LOGIN_PARAM);
-        String password = request.getParameter(PASSWORD_PARAM);
+        String login = request.getParameter(ParameterConstants.LOGIN_PARAM);
+        String password = request.getParameter(ParameterConstants.PASSWORD_PARAM);
 
         LOGGER.info("Registration attempt for user: {}", login);
 
+        if (login == null || login.strip().isBlank() ||
+                password == null || password.strip().isBlank() ||
+                login.length() <  MIN_LOGIN_LENGTH || login.length() > MAX_LOGIN_LENGTH ||
+                password.length() < MIN_PASSWORD_LENGTH || password.length() > MAX_PASSWORD_LENGTH ||
+                !login.matches(LOGIN_PATTERN)) {
+
+            request.setAttribute("errorMessage", "Registration failed");
+            LOGGER.warn("Validation failed for user: {}", login);
+            return PageConstants.REGISTER_PAGE;
+        }
+
         UserService userService = UserServiceImpl.getInstance();
-        User user = getUser(login, password);
+        User user = new User(login, password);
 
         try {
             boolean registered = userService.register(user);
 
             if (registered) {
-                request.setAttribute(MESSAGE_ATTR, String.format(SUCCESS_MESSAGE, login));
+                request.setAttribute(AttributeConstants.MESSAGE_ATTR, String.format("User %s added successfully!", login));
                 LOGGER.info("User {} registered successfully", login);
             } else {
-                if (login == null || login.trim().isEmpty()) {
-                    request.setAttribute(ERROR_MESSAGE_ATTR, ERROR_LOGIN_EMPTY);
-                } else if (password == null || password.trim().isEmpty()) {
-                    request.setAttribute(ERROR_MESSAGE_ATTR, ERROR_PASSWORD_EMPTY);
-                } else if (login.length() < 3) {
-                    request.setAttribute(ERROR_MESSAGE_ATTR, ERROR_LOGIN_TOO_SHORT);
-                } else if (login.length() > 20) {
-                    request.setAttribute(ERROR_MESSAGE_ATTR, ERROR_LOGIN_TOO_LONG);
-                } else if (password.length() < 3) {
-                    request.setAttribute(ERROR_MESSAGE_ATTR, ERROR_PASSWORD_TOO_SHORT);
-                } else if (password.length() > 50) {
-                    request.setAttribute(ERROR_MESSAGE_ATTR, ERROR_PASSWORD_TOO_LONG);
-                } else if (!login.matches("^[a-zA-Z0-9_]+$")) {
-                    request.setAttribute(ERROR_MESSAGE_ATTR, ERROR_INVALID_CHARACTERS);
-                } else {
-                    request.setAttribute(ERROR_MESSAGE_ATTR, ERROR_USER_EXISTS);
-                }
-
-                LOGGER.warn("Registration failed for user: {}", login);
+                request.setAttribute("errorMessage", "User with this login already exists");
+                LOGGER.warn("User already exists: {}", login);
             }
-        } catch (Exception e) {
-            request.setAttribute(ERROR_MESSAGE_ATTR, ERROR_MESSAGE_GENERAL);
+        } catch (DataException e) {
+            request.setAttribute("errorMessage", "Registration failed");
             LOGGER.error("Error during registration for user: " + login, e);
         }
 
-        return REGISTER_PAGE;
-    }
-
-    private static User getUser(String login, String password) {
-        return new User(login, password);
+        return PageConstants.REGISTER_PAGE;
     }
 }

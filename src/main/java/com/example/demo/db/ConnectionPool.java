@@ -11,9 +11,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Enumeration;
 
-public class ConnectionPoolManager {
+public class ConnectionPool {
 
-    private static final Logger LOGGER = LogManager.getLogger(ConnectionPoolManager.class);
+    private static final Logger LOGGER = LogManager.getLogger(ConnectionPool.class);
 
     private static final String DB_URL = """
         jdbc:sqlserver://ZHENIA;
@@ -26,21 +26,26 @@ public class ConnectionPoolManager {
     private static final String DB_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 
     private static final int POOL_SIZE = 20;
-    private static final int MIN_IDLE = 5;
-    private static final int CONNECTION_TIMEOUT = 30000;
+    private static final int MIN_IDLE = 10;
+    private static final int CONNECTION_TIMEOUT = 5000;
     private static final int IDLE_TIMEOUT = 600000;
     private static final int MAX_LIFETIME = 1800000;
 
     private static HikariDataSource dataSource;
-    private static boolean isShutdown = false;
 
-    static {
+    private static final ConnectionPool instance = new ConnectionPool();
+
+    private ConnectionPool() {
         initializePool();
     }
 
-    private static void initializePool() {
+    public static ConnectionPool getInstance() {
+        return instance;
+    }
+
+    private void initializePool() {
         try {
-            LOGGER.info("Initializing Connection Pool...");
+            LOGGER.info("Initializing Connection Pool");
 
             Class.forName(DB_DRIVER);
             LOGGER.info("Driver loaded: {}", DB_DRIVER);
@@ -70,32 +75,18 @@ public class ConnectionPoolManager {
             dataSource = new HikariDataSource(config);
 
             LOGGER.info("Connection Pool initialized successfully");
-            LOGGER.info("   Pool size: {}, Min idle: {}", POOL_SIZE, MIN_IDLE);
-
-            testConnection();
+            LOGGER.info("Pool size: {}, Min idle: {}", POOL_SIZE, MIN_IDLE);
 
         } catch (ClassNotFoundException e) {
-            LOGGER.fatal("FATAL: Database driver not found!", e);
+            LOGGER.fatal("Database driver not found!", e);
             throw new RuntimeException("Driver not found", e);
-        } catch (Exception e) {
-            LOGGER.fatal("FATAL: Failed to initialize connection pool", e);
+        } catch (RuntimeException e) {
+            LOGGER.fatal("Failed to initialize connection pool", e);
             throw new RuntimeException("Connection pool initialization failed", e);
         }
     }
 
-    private static void testConnection() {
-        try (Connection conn = getConnection()) {
-            LOGGER.info("Test connection successful");
-        } catch (SQLException e) {
-            LOGGER.error("Test connection failed", e);
-        }
-    }
-
-    public static Connection getConnection() throws SQLException {
-        if (isShutdown) {
-            throw new SQLException("Connection pool is shut down");
-        }
-
+    public Connection getConnection() throws SQLException {
         try {
             Connection connection = dataSource.getConnection();
             LOGGER.debug("Connection obtained. Active: {}, Idle: {}",
@@ -108,9 +99,8 @@ public class ConnectionPoolManager {
         }
     }
 
-   public static void shutdown() {
-        LOGGER.info("Shutting down Connection Pool...");
-        isShutdown = true;
+    public void shutdown() {
+        LOGGER.info("Shutting down Connection Pool");
 
         if (dataSource != null && !dataSource.isClosed()) {
             dataSource.close();
@@ -122,14 +112,14 @@ public class ConnectionPoolManager {
         LOGGER.info("Connection Pool shutdown complete");
     }
 
-    private static void deregisterDrivers() {
-        LOGGER.info("Deregistering JDBC drivers...");
+    private void deregisterDrivers() {
+        LOGGER.info("Deregistering JDBC drivers");
 
         Enumeration<Driver> drivers = DriverManager.getDrivers();
         while (drivers.hasMoreElements()) {
             Driver driver = drivers.nextElement();
 
-            if (driver.getClass().getClassLoader() == ConnectionPoolManager.class.getClassLoader()) {
+            if (driver.getClass().getClassLoader() == ConnectionPool.class.getClassLoader()) {
                 try {
                     DriverManager.deregisterDriver(driver);
                     LOGGER.info("Deregistered driver: {}", driver.getClass().getName());
@@ -142,7 +132,7 @@ public class ConnectionPoolManager {
         }
     }
 
-    public static PoolStats getStats() {
+    public PoolStats getStats() {
         if (dataSource == null || dataSource.isClosed()) {
             return new PoolStats(0, 0, 0, 0);
         }
@@ -156,11 +146,5 @@ public class ConnectionPoolManager {
         );
     }
 
-    public record PoolStats(int active, int idle, int total, int waiting) {
-        @Override
-        public String toString() {
-            return String.format("Active: %d, Idle: %d, Total: %d, Waiting: %d",
-                    active, idle, total, waiting);
-        }
-    }
+    public record PoolStats(int active, int idle, int total, int waiting) {}
 }

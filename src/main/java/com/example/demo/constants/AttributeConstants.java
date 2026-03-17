@@ -1,0 +1,10 @@
+package com.example.demo.constants;
+
+public final class AttributeConstants {
+
+    private AttributeConstants() {}
+
+    public static final String USER_ATTR = "user";
+    public static final String MESSAGE_ATTR = "message";
+    public static final String ERROR_MESSAGE_ATTR = "errorMessage";
+}

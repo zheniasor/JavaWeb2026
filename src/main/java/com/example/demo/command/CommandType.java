@@ -21,22 +21,20 @@ public enum CommandType {
     }
 
     public static Command define(String commandStr) {
+        Command resultCommand = DEFAULT.command;
         try {
-            if (commandStr == null || commandStr.trim().isEmpty()) {
+            if (commandStr == null || commandStr.strip().isBlank()) {
                 LOGGER.warn("Empty command received, returning DEFAULT");
-                return DEFAULT.command;
+                return resultCommand;
             }
 
             CommandType current = CommandType.valueOf(commandStr.toUpperCase());
             LOGGER.debug("Command resolved: {}", commandStr);
-            return current.command;
+            resultCommand = current.command;
 
         } catch (IllegalArgumentException e) {
             LOGGER.error("Invalid command: '{}', returning DEFAULT command", commandStr);
-            return DEFAULT.command;
-        } catch (Exception e) {
-            LOGGER.error("Unexpected error resolving command: '{}'", commandStr, e);
-            return DEFAULT.command;
         }
+       return resultCommand;
     }
 }

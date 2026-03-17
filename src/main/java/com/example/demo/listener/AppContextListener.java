@@ -1,6 +1,6 @@
 package com.example.demo.listener;
 
-import com.example.demo.db.ConnectionPoolManager;
+import com.example.demo.db.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,20 +15,20 @@ public class AppContextListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        LOGGER.info("🚀 Application starting...");
+        LOGGER.info("Application starting");
 
         LOGGER.info("Application started successfully");
 
-        LOGGER.info("Initial pool stats: {}", ConnectionPoolManager.getStats());
+        LOGGER.info("Initial pool stats: {}", ConnectionPool.getInstance().getStats());
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        LOGGER.info("Application stopping...");
+        LOGGER.info("Application stopping");
 
-        LOGGER.info("Final pool stats: {}", ConnectionPoolManager.getStats());
+        LOGGER.info("Final pool stats: {}", ConnectionPool.getInstance().getStats());
 
-        ConnectionPoolManager.shutdown();
+        ConnectionPool.getInstance().shutdown();
 
         LOGGER.info("Application stopped cleanly");
     }

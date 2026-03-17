@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import com.example.demo.command.Command;
 import com.example.demo.command.CommandType;
+import com.example.demo.constants.PageConstants;
+import com.example.demo.constants.ParameterConstants;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,11 +17,6 @@ import org.apache.logging.log4j.Logger;
 public class Controller extends HttpServlet {
 
     private static final Logger LOGGER = LogManager.getLogger(Controller.class);
-
-    private static final String CONTENT_TYPE = "text/html";
-    private static final String COMMAND_PARAM = "command";
-    private static final String DEFAULT_COMMAND = "DEFAULT";
-    private static final String INDEX_PAGE = "index.jsp";
 
     @Override
     public void init() {
@@ -36,11 +33,11 @@ public class Controller extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType(CONTENT_TYPE);
-        String commandStr = request.getParameter(COMMAND_PARAM);
 
-        if (commandStr == null || commandStr.isEmpty()) {
-            commandStr = DEFAULT_COMMAND;
+        String commandStr = request.getParameter(ParameterConstants.COMMAND_PARAM);
+
+        if (commandStr == null || commandStr.isBlank()) {
+            commandStr = ParameterConstants.DEFAULT_COMMAND;
             LOGGER.debug("Command parameter is empty, using DEFAULT");
         }
 
@@ -52,9 +49,9 @@ public class Controller extends HttpServlet {
             LOGGER.info("Forwarding to page: {}", page);
 
             request.getRequestDispatcher(page).forward(request, response);
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             LOGGER.error("Error executing command: " + commandStr, e);
-            response.sendRedirect(request.getContextPath() + INDEX_PAGE);
+            response.sendRedirect(request.getContextPath() + PageConstants.INDEX_PAGE);
         }
     }
 }
