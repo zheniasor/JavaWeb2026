@@ -7,34 +7,49 @@ import com.example.demo.command.impl.LogoutCommand;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public enum CommandType {
-    ADD_USER(new AddUserCommand()),
-    LOGIN(new LoginCommand()),
-    LOGOUT(new LogoutCommand()),
-    DEFAULT(new DefaultCommand());
+import java.util.Arrays;
+import java.util.Optional;
 
-    Command command;
+public enum CommandType {
+    ADD_USER("ADD_USER", new AddUserCommand()),
+    LOGIN("LOGIN", new LoginCommand()),
+    LOGOUT("LOGOUT", new LogoutCommand()),
+    DEFAULT("DEFAULT", new DefaultCommand());
+
+    private final String name;
+    private final Command command;
     private static final Logger LOGGER = LogManager.getLogger(CommandType.class);
 
-    CommandType(Command command) {
+    CommandType(String name, Command command) {
+        this.name = name;
         this.command = command;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public Command getCommand() {
+        return command;
+    }
+
     public static Command define(String commandStr) {
-        Command resultCommand = DEFAULT.command;
-        try {
-            if (commandStr == null || commandStr.strip().isBlank()) {
-                LOGGER.warn("Empty command received, returning DEFAULT");
-                return resultCommand;
-            }
-
-            CommandType current = CommandType.valueOf(commandStr.toUpperCase());
-            LOGGER.debug("Command resolved: {}", commandStr);
-            resultCommand = current.command;
-
-        } catch (IllegalArgumentException e) {
-            LOGGER.error("Invalid command: '{}', returning DEFAULT command", commandStr);
+        if (commandStr == null || commandStr.isBlank()) {
+            LOGGER.warn("Empty command received, returning DEFAULT");
+            return DEFAULT.command;
         }
-       return resultCommand;
+
+        return findCommand(commandStr)
+                .orElseGet(() -> {
+                    LOGGER.error("Invalid command: '{}', returning DEFAULT command", commandStr);
+                    return DEFAULT.command;
+                });
+    }
+
+    private static Optional<Command> findCommand(String commandName) {
+        return Arrays.stream(CommandType.values())
+                .filter(command -> command.getName().equalsIgnoreCase(commandName))
+                .findFirst()
+                .map(CommandType::getCommand);
     }
 }

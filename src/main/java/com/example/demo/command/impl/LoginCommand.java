@@ -1,9 +1,9 @@
 package com.example.demo.command.impl;
 
 import com.example.demo.command.Command;
-import com.example.demo.constants.PageConstants;
-import com.example.demo.constants.AttributeConstants;
-import com.example.demo.constants.ParameterConstants;
+import com.example.demo.command.PageConstants;
+import com.example.demo.command.AttributeConstants;
+import com.example.demo.controller.ParameterConstants;
 import com.example.demo.exception.DataException;
 import com.example.demo.service.UserService;
 import com.example.demo.service.impl.UserServiceImpl;

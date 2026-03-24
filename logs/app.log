@@ -86,3 +86,18 @@
 2026-03-17 21:07:29.430 [main] INFO  com.example.demo.db.ConnectionPool - Deregistered driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
 2026-03-17 21:07:29.430 [main] INFO  com.example.demo.db.ConnectionPool - Connection Pool shutdown complete
 2026-03-17 21:07:29.430 [main] INFO  com.example.demo.listener.AppContextListener - Application stopped cleanly
+2026-03-19 09:43:04.397 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application starting
+2026-03-19 09:43:04.405 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application started successfully
+2026-03-19 09:43:04.405 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Initializing Connection Pool
+2026-03-19 09:43:04.426 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Driver loaded: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-03-19 09:43:13.218 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Connection Pool initialized successfully
+2026-03-19 09:43:13.218 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Pool size: 20, Min idle: 10
+2026-03-19 09:43:13.221 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Initial pool stats: PoolStats[active=0, idle=1, total=1, waiting=0]
+2026-03-19 09:56:09.821 [main] INFO  com.example.demo.listener.AppContextListener - Application stopping
+2026-03-19 09:56:09.828 [main] INFO  com.example.demo.listener.AppContextListener - Final pool stats: PoolStats[active=0, idle=10, total=10, waiting=0]
+2026-03-19 09:56:09.832 [main] INFO  com.example.demo.db.ConnectionPool - Shutting down Connection Pool
+2026-03-19 09:56:09.885 [main] INFO  com.example.demo.db.ConnectionPool - DataSource closed
+2026-03-19 09:56:09.887 [main] INFO  com.example.demo.db.ConnectionPool - Deregistering JDBC drivers
+2026-03-19 09:56:09.891 [main] INFO  com.example.demo.db.ConnectionPool - Deregistered driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-03-19 09:56:09.891 [main] INFO  com.example.demo.db.ConnectionPool - Connection Pool shutdown complete
+2026-03-19 09:56:09.891 [main] INFO  com.example.demo.listener.AppContextListener - Application stopped cleanly

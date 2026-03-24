@@ -32,18 +32,9 @@ public class ConnectionPool {
     private static final int MAX_LIFETIME = 1800000;
 
     private static HikariDataSource dataSource;
-
     private static final ConnectionPool instance = new ConnectionPool();
 
     private ConnectionPool() {
-        initializePool();
-    }
-
-    public static ConnectionPool getInstance() {
-        return instance;
-    }
-
-    private void initializePool() {
         try {
             LOGGER.info("Initializing Connection Pool");
 
@@ -77,21 +68,24 @@ public class ConnectionPool {
             LOGGER.info("Connection Pool initialized successfully");
             LOGGER.info("Pool size: {}, Min idle: {}", POOL_SIZE, MIN_IDLE);
 
-        } catch (ClassNotFoundException e) {
-            LOGGER.fatal("Database driver not found!", e);
-            throw new RuntimeException("Driver not found", e);
-        } catch (RuntimeException e) {
+        } catch (Exception e) {
             LOGGER.fatal("Failed to initialize connection pool", e);
-            throw new RuntimeException("Connection pool initialization failed", e);
+            throw new ExceptionInInitializerError("Connection pool initialization failed: " + e.getMessage());
         }
+    }
+
+    public static ConnectionPool getInstance() {
+        return instance;
     }
 
     public Connection getConnection() throws SQLException {
         try {
             Connection connection = dataSource.getConnection();
-            LOGGER.debug("Connection obtained. Active: {}, Idle: {}",
-                    dataSource.getHikariPoolMXBean().getActiveConnections(),
-                    dataSource.getHikariPoolMXBean().getIdleConnections());
+
+            int active = dataSource.getHikariPoolMXBean().getActiveConnections();
+            int idle = dataSource.getHikariPoolMXBean().getIdleConnections();
+            LOGGER.debug("Connection obtained. Active: {}, Idle: {}", active, idle);
+
             return connection;
         } catch (SQLException e) {
             LOGGER.error("Failed to get connection from pool", e);

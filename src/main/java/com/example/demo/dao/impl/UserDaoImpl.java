@@ -1,13 +1,14 @@
 package com.example.demo.dao.impl;
 
-import com.example.demo.constants.ColumnName;
+import com.example.demo.dao.ColumnName;
 import com.example.demo.dao.BaseDao;
 import com.example.demo.dao.UserDao;
 import com.example.demo.db.ConnectionPool;
 import com.example.demo.entity.User;
 import com.example.demo.exception.DataException;
-import com.example.demo.util.PasswordEncoder;
 import com.example.demo.mapper.UserMapper;
+import com.example.demo.util.PasswordEncoder;
+import com.example.demo.mapper.impl.UserMapperImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,12 +21,13 @@ import java.util.Optional;
 public class UserDaoImpl extends BaseDao<User> implements UserDao {
 
     private static final Logger LOGGER = LogManager.getLogger(UserDaoImpl.class);
+    private final UserMapper userMapper = new UserMapperImpl();
 
     private static final String SELECT_ALL = "SELECT id, login, password FROM users";
     private static final String SELECT_BY_LOGIN = "SELECT id, login, password FROM users WHERE login = ?";
     private static final String SELECT_PASSWORD_BY_LOGIN = "SELECT password FROM users WHERE login = ?";
-    private static final String INSERT = "INSERT INTO users (login, password) VALUES (?, ?)";
-    private static final String UPDATE = "UPDATE users SET login = ?, password = ? WHERE id = ?";
+    private static final String INSERT_LOGIN_AND_PASSWORD = "INSERT INTO users (login, password) VALUES (?, ?)";
+    private static final String UPDATE_USER = "UPDATE users SET login = ?, password = ? WHERE id = ?";
     private static final String DELETE = "DELETE FROM users WHERE id = ?";
 
     @Override
@@ -33,7 +35,7 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
         LOGGER.debug("Inserting user: {}", user.getLogin());
 
         try (Connection connection = ConnectionPool.getInstance().getConnection();
-             PreparedStatement statement = connection.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS)) {
+             PreparedStatement statement = connection.prepareStatement(INSERT_LOGIN_AND_PASSWORD, Statement.RETURN_GENERATED_KEYS)) {
 
             statement.setString(1, user.getLogin());
             statement.setString(2, user.getPassword());
@@ -92,7 +94,7 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
              ResultSet resultSet = statement.executeQuery(SELECT_ALL)) {
 
             while (resultSet.next()) {
-                users.add(UserMapper.mapRow(resultSet));
+                users.add(userMapper.mapRow(resultSet));
             }
 
             LOGGER.debug("Found {} users in database", users.size());
@@ -113,7 +115,7 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
         LOGGER.debug("Attempting to update user with ID: {}", user.getId());
 
         try (Connection connection = ConnectionPool.getInstance().getConnection();
-             PreparedStatement statement = connection.prepareStatement(UPDATE)) {
+             PreparedStatement statement = connection.prepareStatement(UPDATE_USER)) {
 
             statement.setString(1, user.getLogin());
             statement.setString(2, user.getPassword());
@@ -136,12 +138,12 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
 
     @Override
     public boolean authenticate(String login, String password) throws DataException {
-        if (login == null || login.trim().isEmpty()) {
+        if (login == null || login.isBlank()) {
             LOGGER.warn("Authentication attempt with empty login");
             return false;
         }
 
-        if (password == null || password.trim().isEmpty()) {
+        if (password == null || password.isBlank()) {
             LOGGER.warn("Authentication attempt with empty password for user: {}", login);
             return false;
         }
@@ -179,7 +181,7 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
 
     @Override
     public Optional<User> findByLogin(String login) throws DataException {
-        if (login == null || login.trim().isEmpty()) {
+        if (login == null || login.isBlank()) {
             LOGGER.warn("Attempt to find user with empty login");
             return Optional.empty();
         }
@@ -193,7 +195,7 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
 
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
-                    User user = UserMapper.mapRow(resultSet);
+                    User user = userMapper.mapRow(resultSet);
                     LOGGER.debug("User found with ID: {}", user.getId());
                     return Optional.of(user);
                 }

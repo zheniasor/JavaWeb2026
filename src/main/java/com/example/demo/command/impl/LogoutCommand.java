@@ -1,8 +1,8 @@
 package com.example.demo.command.impl;
 
 import com.example.demo.command.Command;
-import com.example.demo.constants.PageConstants;
-import com.example.demo.constants.AttributeConstants;
+import com.example.demo.command.PageConstants;
+import com.example.demo.command.AttributeConstants;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.apache.logging.log4j.LogManager;

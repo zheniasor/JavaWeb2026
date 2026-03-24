@@ -2,8 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.command.Command;
 import com.example.demo.command.CommandType;
-import com.example.demo.constants.PageConstants;
-import com.example.demo.constants.ParameterConstants;
+import com.example.demo.command.PageConstants;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -36,22 +35,12 @@ public class Controller extends HttpServlet {
 
         String commandStr = request.getParameter(ParameterConstants.COMMAND_PARAM);
 
-        if (commandStr == null || commandStr.isBlank()) {
-            commandStr = ParameterConstants.DEFAULT_COMMAND;
-            LOGGER.debug("Command parameter is empty, using DEFAULT");
-        }
-
         LOGGER.info("Received command: {}", commandStr);
 
-        try {
-            Command command = CommandType.define(commandStr);
-            String page = command.execute(request);
-            LOGGER.info("Forwarding to page: {}", page);
+        Command command = CommandType.define(commandStr);
+        String page = command.execute(request);
+        LOGGER.info("Forwarding to page: {}", page);
 
-            request.getRequestDispatcher(page).forward(request, response);
-        } catch (IllegalArgumentException e) {
-            LOGGER.error("Error executing command: " + commandStr, e);
-            response.sendRedirect(request.getContextPath() + PageConstants.INDEX_PAGE);
-        }
+        request.getRequestDispatcher(page).forward(request, response);
     }
 }

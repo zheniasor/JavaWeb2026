@@ -1,9 +1,9 @@
 package com.example.demo.command.impl;
 
 import com.example.demo.command.Command;
-import com.example.demo.constants.PageConstants;
-import com.example.demo.constants.AttributeConstants;
-import com.example.demo.constants.ParameterConstants;
+import com.example.demo.command.PageConstants;
+import com.example.demo.command.AttributeConstants;
+import com.example.demo.controller.ParameterConstants;
 import com.example.demo.entity.User;
 import com.example.demo.exception.DataException;
 import com.example.demo.service.UserService;
@@ -16,7 +16,7 @@ public class AddUserCommand implements Command {
 
     private static final Logger LOGGER = LogManager.getLogger(AddUserCommand.class);
 
-    private static final String LOGIN_PATTERN = "^[a-zA-Z0-9_]+$";
+    private static final String LOGIN_REGEX = "^[a-zA-Z0-9_]+$";
     private static final int MIN_LOGIN_LENGTH = 3;
     private static final int MAX_LOGIN_LENGTH = 20;
     private static final int MIN_PASSWORD_LENGTH = 3;
@@ -29,11 +29,11 @@ public class AddUserCommand implements Command {
 
         LOGGER.info("Registration attempt for user: {}", login);
 
-        if (login == null || login.strip().isBlank() ||
-                password == null || password.strip().isBlank() ||
+        if (login == null || login.isBlank() ||
+                password == null || password.isBlank() ||
                 login.length() <  MIN_LOGIN_LENGTH || login.length() > MAX_LOGIN_LENGTH ||
                 password.length() < MIN_PASSWORD_LENGTH || password.length() > MAX_PASSWORD_LENGTH ||
-                !login.matches(LOGIN_PATTERN)) {
+                !login.matches(LOGIN_REGEX)) {
 
             request.setAttribute("errorMessage", "Registration failed");
             LOGGER.warn("Validation failed for user: {}", login);
@@ -58,6 +58,6 @@ public class AddUserCommand implements Command {
             LOGGER.error("Error during registration for user: " + login, e);
         }
 
-        return PageConstants.REGISTER_PAGE;
+        return PageConstants.INDEX_PAGE;
     }
 }

@@ -17,16 +17,20 @@ public class AppContextListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         LOGGER.info("Application starting");
 
-        LOGGER.info("Application started successfully");
+        ConnectionPool.PoolStats stats = ConnectionPool.getInstance().getStats();
+        LOGGER.info("Initial pool stats: active={}, idle={}, total={}, waiting={}",
+                stats.active(), stats.idle(), stats.total(), stats.waiting());
 
-        LOGGER.info("Initial pool stats: {}", ConnectionPool.getInstance().getStats());
+        LOGGER.info("Application started successfully");
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
         LOGGER.info("Application stopping");
 
-        LOGGER.info("Final pool stats: {}", ConnectionPool.getInstance().getStats());
+        ConnectionPool.PoolStats stats = ConnectionPool.getInstance().getStats();
+        LOGGER.info("Final pool stats: active={}, idle={}, total={}, waiting={}",
+                stats.active(), stats.idle(), stats.total(), stats.waiting());
 
         ConnectionPool.getInstance().shutdown();
 
