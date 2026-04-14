@@ -19,12 +19,20 @@ public class UserServiceImpl implements UserService {
 
     private static final Logger LOGGER = LogManager.getLogger(UserServiceImpl.class);
     private static final UserServiceImpl instance = new UserServiceImpl();
-    private final UserDao userDao = new UserDaoImpl();
-    private final UserValidator userValidator = new UserValidatorImpl();
-    private final MailService mailService = MailServiceImpl.getInstance(); // ← интерфейс
+    private  UserDao userDao = new UserDaoImpl();
+    private  UserValidator userValidator = new UserValidatorImpl();
+    private  MailService mailService = MailServiceImpl.getInstance(); // ← интерфейс
+
+    public UserServiceImpl(UserDao userDao, UserValidator userValidator, MailService mailService) {
+        this.userDao = userDao;
+        this.userValidator = userValidator;
+        this.mailService = mailService;
+    }
 
     private UserServiceImpl() {
-        LOGGER.debug("UserServiceImpl instance created");
+        this.userDao = new UserDaoImpl();
+        this.userValidator = new UserValidatorImpl();
+        this.mailService = MailServiceImpl.getInstance();
     }
 
     public static UserServiceImpl getInstance() {

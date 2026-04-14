@@ -11,7 +11,6 @@ import com.example.demo.service.impl.UserServiceImpl;
 import com.example.demo.validator.UserValidator;
 import com.example.demo.validator.impl.UserValidatorImpl;
 import jakarta.servlet.http.HttpServletRequest;
-import org.apache.commons.text.StringEscapeUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.util.Map;

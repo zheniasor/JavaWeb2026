@@ -1,5 +1,6 @@
-package com.example.demo.command;
+package com.example.demo.controller;
 
+import com.example.demo.command.Command;
 import com.example.demo.command.impl.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
