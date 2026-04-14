@@ -8,4 +8,6 @@ public final class ParameterConstants {
     public static final String DEFAULT_COMMAND = "DEFAULT";
     public static final String LOGIN_PARAM = "login";
     public static final String PASSWORD_PARAM = "pass";
+    public static final String EMAIL_PARAM = "email";
+    public static final String TOKEN_PARAM = "token";
 }

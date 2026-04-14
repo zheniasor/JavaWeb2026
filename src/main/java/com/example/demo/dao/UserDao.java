@@ -9,4 +9,7 @@ public interface UserDao {
     boolean authenticate(String login, String password) throws DataException;
     boolean insert(User user) throws DataException;
     Optional<User> findByLogin(String login) throws DataException;
+    Optional<User> findByEmail(String email) throws DataException;
+    Optional<User> findByToken(String token) throws DataException;
+    boolean confirmUser(int userId) throws DataException;
 }

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
 <head>
     <title>Главная страница</title>
@@ -7,10 +8,10 @@
 <body>
 <div class="welcome">
     <h1>Добро пожаловать!</h1>
-    <p>Hello, ${user}!</p>
+    <p>Hello, <c:out value="${user}"/>!</p>
 
     <form action="${pageContext.request.contextPath}/controller" method="get">
-        <input type="hidden" name="command" value="logout">
+        <input type="hidden" name="command" value="LOGOUT">
         <button type="submit" class="logout-btn">Выйти</button>
     </form>
 </div>

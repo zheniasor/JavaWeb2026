@@ -8,13 +8,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserMapperImpl implements UserMapper {
-
     @Override
     public User mapRow(ResultSet resultSet) throws SQLException {
         User user = new User();
         user.setId(resultSet.getInt(ColumnName.ID));
         user.setLogin(resultSet.getString(ColumnName.LOGIN));
         user.setPassword(resultSet.getString(ColumnName.PASSWORD));
+        user.setEmail(resultSet.getString(ColumnName.EMAIL));
+        user.setConfirmed(resultSet.getBoolean(ColumnName.CONFIRMED));
         return user;
     }
 }

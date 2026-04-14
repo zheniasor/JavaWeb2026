@@ -5,6 +5,5 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public interface UserMapper {
-
     User mapRow(ResultSet resultSet) throws SQLException;
 }

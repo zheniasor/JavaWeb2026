@@ -25,11 +25,11 @@ public class ConnectionPool {
     private static final String DB_PASSWORD = "123456";
     private static final String DB_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 
-    private static final int POOL_SIZE = 20;
-    private static final int MIN_IDLE = 10;
-    private static final int CONNECTION_TIMEOUT = 5000;
-    private static final int IDLE_TIMEOUT = 600000;
-    private static final int MAX_LIFETIME = 1800000;
+    private static final int POOL_SIZE = 5;
+    private static final int MIN_IDLE = 2;
+    private static final int CONNECTION_TIMEOUT = 3000;
+    private static final int IDLE_TIMEOUT = 300000;
+    private static final int MAX_LIFETIME = 600000;
 
     private static HikariDataSource dataSource;
     private static final ConnectionPool instance = new ConnectionPool();
@@ -61,7 +61,7 @@ public class ConnectionPool {
             config.addDataSourceProperty("prepStmtCacheSize", "250");
             config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
 
-            config.setAutoCommit(false);
+            config.setAutoCommit(true);
 
             dataSource = new HikariDataSource(config);
 

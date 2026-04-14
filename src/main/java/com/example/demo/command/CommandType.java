@@ -1,9 +1,6 @@
 package com.example.demo.command;
 
-import com.example.demo.command.impl.AddUserCommand;
-import com.example.demo.command.impl.DefaultCommand;
-import com.example.demo.command.impl.LoginCommand;
-import com.example.demo.command.impl.LogoutCommand;
+import com.example.demo.command.impl.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -14,6 +11,7 @@ public enum CommandType {
     ADD_USER("ADD_USER", new AddUserCommand()),
     LOGIN("LOGIN", new LoginCommand()),
     LOGOUT("LOGOUT", new LogoutCommand()),
+    CONFIRM("CONFIRM", new ConfirmCommand()),
     DEFAULT("DEFAULT", new DefaultCommand());
 
     private final String name;

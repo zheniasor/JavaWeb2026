@@ -23,22 +23,29 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
     private static final Logger LOGGER = LogManager.getLogger(UserDaoImpl.class);
     private final UserMapper userMapper = new UserMapperImpl();
 
-    private static final String SELECT_ALL = "SELECT id, login, password FROM users";
-    private static final String SELECT_BY_LOGIN = "SELECT id, login, password FROM users WHERE login = ?";
+    private static final String SELECT_ALL = "SELECT id, login, password, email, confirmed FROM users";
+    private static final String SELECT_BY_LOGIN = "SELECT id, login, password, email, confirmed FROM users WHERE login = ?";
     private static final String SELECT_PASSWORD_BY_LOGIN = "SELECT password FROM users WHERE login = ?";
-    private static final String INSERT_LOGIN_AND_PASSWORD = "INSERT INTO users (login, password) VALUES (?, ?)";
+    private static final String INSERT_USER =
+            "INSERT INTO users (login, password, email, confirmation_token, confirmed) VALUES (?, ?, ?, ?, ?)";
     private static final String UPDATE_USER = "UPDATE users SET login = ?, password = ? WHERE id = ?";
     private static final String DELETE = "DELETE FROM users WHERE id = ?";
+    private static final String SELECT_BY_EMAIL = "SELECT id, login, password, email, confirmed FROM users WHERE email = ?";
+    private static final String SELECT_BY_TOKEN = "SELECT id, login, password, email, confirmed FROM users WHERE confirmation_token = ?";
+    private static final String UPDATE_CONFIRMED = "UPDATE users SET confirmed = 1, confirmation_token = NULL WHERE id = ?";
 
     @Override
     public boolean insert(User user) throws DataException {
         LOGGER.debug("Inserting user: {}", user.getLogin());
 
         try (Connection connection = ConnectionPool.getInstance().getConnection();
-             PreparedStatement statement = connection.prepareStatement(INSERT_LOGIN_AND_PASSWORD, Statement.RETURN_GENERATED_KEYS)) {
+             PreparedStatement statement = connection.prepareStatement(INSERT_USER, Statement.RETURN_GENERATED_KEYS)) {
 
             statement.setString(1, user.getLogin());
             statement.setString(2, user.getPassword());
+            statement.setString(3, user.getEmail());
+            statement.setString(4, user.getConfirmationToken());
+            statement.setBoolean(5, user.isConfirmed());
 
             int affectedRows = statement.executeUpdate();
             LOGGER.debug("Insert affected rows: {}", affectedRows);
@@ -50,6 +57,7 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
                         LOGGER.info("User inserted successfully with ID: {}", user.getId());
                     }
                 }
+
                 return true;
             }
 
@@ -192,6 +200,8 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
              PreparedStatement statement = connection.prepareStatement(SELECT_BY_LOGIN)) {
 
             statement.setString(1, login);
+            LOGGER.debug("SQL: {}", SELECT_BY_LOGIN);
+            LOGGER.debug("Parameter: login={}", login);
 
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
@@ -207,6 +217,87 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
         } catch (SQLException e) {
             LOGGER.error("SQL Error while finding user by login: " + login, e);
             throw new DataException("Failed to find user by login: " + login, e);
+        }
+    }
+
+    @Override
+    public Optional<User> findByEmail(String email) throws DataException {
+        if (email == null || email.isBlank()) {
+            LOGGER.warn("Attempt to find user with empty email");
+            return Optional.empty();
+        }
+
+        LOGGER.debug("Finding user by email: {}", email);
+
+        try (Connection connection = ConnectionPool.getInstance().getConnection();
+             PreparedStatement statement = connection.prepareStatement(SELECT_BY_EMAIL)) {
+
+            statement.setString(1, email);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    User user = userMapper.mapRow(resultSet);
+                    LOGGER.debug("User found with ID: {}", user.getId());
+                    return Optional.of(user);
+                }
+                return Optional.empty();
+            }
+        } catch (SQLException e) {
+            LOGGER.error("SQL Error while finding user by email: " + email, e);
+            throw new DataException("Failed to find user by email: " + email, e);
+        }
+    }
+
+    @Override
+    public Optional<User> findByToken(String token) throws DataException {
+        if (token == null || token.isBlank()) {
+            LOGGER.warn("Attempt to find user with empty token");
+            return Optional.empty();
+        }
+
+        LOGGER.debug("Finding user by token: {}", token);
+
+        try (Connection connection = ConnectionPool.getInstance().getConnection();
+             PreparedStatement statement = connection.prepareStatement(SELECT_BY_TOKEN)) {
+
+            statement.setString(1, token);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    User user = userMapper.mapRow(resultSet);
+                    LOGGER.debug("User found with ID: {}", user.getId());
+                    return Optional.of(user);
+                }
+                return Optional.empty();
+            }
+        } catch (SQLException e) {
+            LOGGER.error("SQL Error while finding user by token", e);
+            throw new DataException("Failed to find user by token", e);
+        }
+    }
+
+    @Override
+    public boolean confirmUser(int userId) throws DataException {
+        LOGGER.debug("Confirming user with ID: {}", userId);
+
+        try (Connection connection = ConnectionPool.getInstance().getConnection();
+             PreparedStatement statement = connection.prepareStatement(UPDATE_CONFIRMED)) {
+
+            statement.setInt(1, userId);
+
+            LOGGER.debug("SQL: {}", UPDATE_CONFIRMED);
+            LOGGER.debug("Parameter: userId={}", userId);
+
+            int affectedRows = statement.executeUpdate();
+            LOGGER.info("Confirm user ID: {} - {} rows affected", userId, affectedRows);
+
+            if (affectedRows > 0) {
+                connection.commit();
+            }
+            return affectedRows > 0;
+        } catch (SQLException e) {
+            LOGGER.error("SQL Error confirming user with ID: " + userId, e);
+            throw new DataException("Failed to confirm user with ID: " + userId, e);
         }
     }
 }
