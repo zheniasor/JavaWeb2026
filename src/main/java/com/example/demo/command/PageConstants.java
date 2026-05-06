@@ -8,4 +8,6 @@ public final class PageConstants {
     public static final String MAIN_PAGE = "pages/main.jsp";
     public static final String REGISTER_PAGE = "pages/register.jsp";
     public static final String CONFIRMATION_PAGE = "pages/confirmation.jsp";
+    public static final String EDIT_PROFILE_PAGE = "pages/editProfile.jsp";
+    public static final String ADMIN_PANEL_PAGE = "pages/adminPanel.jsp";
 }

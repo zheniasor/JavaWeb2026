@@ -10,4 +10,7 @@ public final class ParameterConstants {
     public static final String PASSWORD_PARAM = "pass";
     public static final String EMAIL_PARAM = "email";
     public static final String TOKEN_PARAM = "token";
+    public static final String NEW_LOGIN_PARAM = "newLogin";
+    public static final String NEW_PASSWORD_PARAM = "newPassword";
+    public static final String USER_ID_PARAM = "userId";
 }

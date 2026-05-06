@@ -3254,3 +3254,924 @@ Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Недопустим
 2026-04-14 12:17:45.669 [main] DEBUG org.hibernate.validator.resourceloading.PlatformResourceBundleLocator - org.hibernate.validator.ValidationMessages found.
 2026-04-14 12:17:45.699 [main] WARN  com.example.demo.command.impl.AddUserCommand - Validation failed for user: ab
 2026-04-14 12:17:45.797 [main] WARN  com.example.demo.command.impl.AddUserCommand - Validation failed for user: john123
+2026-05-04 21:34:57.478 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application starting
+2026-05-04 21:34:57.491 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Initializing Connection Pool
+2026-05-04 21:34:57.524 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Driver loaded: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-05-04 21:34:58.142 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Connection Pool initialized successfully
+2026-05-04 21:34:58.143 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Pool size: 5, Min idle: 2
+2026-05-04 21:34:58.145 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Initial pool stats: active=0, idle=1, total=1, waiting=0
+2026-05-04 21:34:58.146 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application started successfully
+2026-05-04 21:35:45.273 [http-nio-8080-exec-1] INFO  com.example.demo.controller.Controller - Initializing Controller
+2026-05-04 21:35:45.274 [http-nio-8080-exec-1] INFO  com.example.demo.controller.Controller - Controller initialized successfully
+2026-05-04 21:35:45.276 [http-nio-8080-exec-1] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-04 21:35:45.452 [http-nio-8080-exec-1] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+2026-05-04 21:35:45.453 [http-nio-8080-exec-1] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-05-04 21:35:45.481 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+2026-05-04 21:35:45.484 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+2026-05-04 21:35:45.488 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2026-05-04 21:35:45.488 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+2026-05-04 21:35:45.507 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.engine.resolver.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2026-05-04 21:35:45.614 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+2026-05-04 21:35:46.241 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2026-05-04 21:35:46.260 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2026-05-04 21:35:46.261 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2026-05-04 21:35:46.262 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2026-05-04 21:35:46.262 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2026-05-04 21:35:46.262 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2026-05-04 21:35:46.401 [http-nio-8080-exec-1] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: testemail
+2026-05-04 21:35:46.403 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-04 21:35:46.422 [http-nio-8080-exec-1] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-04 21:35:46.514 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-04 21:35:46.515 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-04 21:35:46.639 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - User not found: testemail
+2026-05-04 21:35:46.652 [http-nio-8080-exec-1] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-04 21:36:11.856 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Received command: ADD_USER
+2026-05-04 21:36:12.595 [http-nio-8080-exec-5] DEBUG com.example.demo.service.impl.UserServiceImpl - Attempting to register user: testemail
+2026-05-04 21:36:12.597 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-04 21:36:12.603 [http-nio-8080-exec-5] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-04 21:36:12.604 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-04 21:36:12.604 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-04 21:36:12.624 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - User not found: testemail
+2026-05-04 21:36:12.625 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by email: zheniasor@gmail.com
+2026-05-04 21:36:12.625 [http-nio-8080-exec-5] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-04 21:36:12.656 [http-nio-8080-exec-5] DEBUG com.example.demo.util.PasswordEncoder - Hashing password
+2026-05-04 21:36:12.880 [http-nio-8080-exec-5] DEBUG com.example.demo.util.PasswordEncoder - Password hashed successfully
+2026-05-04 21:36:12.881 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - Inserting user: testemail
+2026-05-04 21:36:12.882 [http-nio-8080-exec-5] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-04 21:36:13.019 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - Insert affected rows: 1
+2026-05-04 21:36:13.059 [http-nio-8080-exec-5] INFO  com.example.demo.dao.impl.UserDaoImpl - User inserted successfully with ID: 1002
+2026-05-04 21:36:15.464 [http-nio-8080-exec-5] INFO  com.example.demo.service.impl.MailServiceImpl - Email sent successfully to: zheniasor@gmail.com
+2026-05-04 21:36:15.464 [http-nio-8080-exec-5] INFO  com.example.demo.service.impl.UserServiceImpl - User registered successfully, confirmation email sent: testemail
+2026-05-04 21:36:15.465 [http-nio-8080-exec-5] INFO  com.example.demo.command.impl.AddUserCommand - User registered successfully, confirmation email sent: testemail
+2026-05-04 21:36:15.465 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/confirmation.jsp
+2026-05-04 21:36:19.656 [http-nio-8080-exec-7] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-04 21:36:19.656 [http-nio-8080-exec-7] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: testemail
+2026-05-04 21:36:19.657 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-04 21:36:19.658 [http-nio-8080-exec-7] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-04 21:36:19.658 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-04 21:36:19.658 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-04 21:36:19.669 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1002
+2026-05-04 21:36:19.670 [http-nio-8080-exec-7] WARN  com.example.demo.service.impl.UserServiceImpl - User testemail not confirmed
+2026-05-04 21:36:19.670 [http-nio-8080-exec-7] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-04 21:37:23.436 [http-nio-8080-exec-1] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-04 21:37:23.436 [http-nio-8080-exec-1] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: testemail
+2026-05-04 21:37:23.436 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-04 21:37:23.441 [http-nio-8080-exec-1] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-04 21:37:23.442 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-04 21:37:23.442 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-04 21:37:23.459 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1002
+2026-05-04 21:37:23.460 [http-nio-8080-exec-1] WARN  com.example.demo.service.impl.UserServiceImpl - User testemail not confirmed
+2026-05-04 21:37:23.460 [http-nio-8080-exec-1] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-04 21:37:26.650 [http-nio-8080-exec-4] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-04 21:37:26.650 [http-nio-8080-exec-4] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: testemail
+2026-05-04 21:37:26.651 [http-nio-8080-exec-4] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-04 21:37:26.658 [http-nio-8080-exec-4] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-04 21:37:26.658 [http-nio-8080-exec-4] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-04 21:37:26.658 [http-nio-8080-exec-4] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-04 21:37:26.670 [http-nio-8080-exec-4] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1002
+2026-05-04 21:37:26.670 [http-nio-8080-exec-4] WARN  com.example.demo.service.impl.UserServiceImpl - User testemail not confirmed
+2026-05-04 21:37:26.670 [http-nio-8080-exec-4] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-04 21:37:28.167 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-04 21:37:28.167 [http-nio-8080-exec-10] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: testemail
+2026-05-04 21:37:28.167 [http-nio-8080-exec-10] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-04 21:37:28.169 [http-nio-8080-exec-10] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-04 21:37:28.170 [http-nio-8080-exec-10] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-04 21:37:28.170 [http-nio-8080-exec-10] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-04 21:37:28.180 [http-nio-8080-exec-10] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1002
+2026-05-04 21:37:28.180 [http-nio-8080-exec-10] WARN  com.example.demo.service.impl.UserServiceImpl - User testemail not confirmed
+2026-05-04 21:37:28.182 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-04 21:37:35.729 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Received command: ADD_USER
+2026-05-04 21:37:35.731 [http-nio-8080-exec-8] DEBUG com.example.demo.service.impl.UserServiceImpl - Attempting to register user: testemail
+2026-05-04 21:37:35.732 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-04 21:37:35.739 [http-nio-8080-exec-8] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-04 21:37:35.740 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-04 21:37:35.740 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-04 21:37:35.764 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1002
+2026-05-04 21:37:35.765 [http-nio-8080-exec-8] WARN  com.example.demo.service.impl.UserServiceImpl - Registration failed - user already exists: testemail
+2026-05-04 21:37:35.765 [http-nio-8080-exec-8] WARN  com.example.demo.command.impl.AddUserCommand - User already exists: testemail
+2026-05-04 21:37:35.765 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/register.jsp
+2026-05-04 21:40:55.224 [main] INFO  com.example.demo.listener.AppContextListener - Application stopping
+2026-05-04 21:40:55.229 [main] INFO  com.example.demo.listener.AppContextListener - Final pool stats: active=0, idle=2, total=2, waiting=0
+2026-05-04 21:40:55.229 [main] INFO  com.example.demo.db.ConnectionPool - Shutting down Connection Pool
+2026-05-04 21:40:55.268 [main] INFO  com.example.demo.db.ConnectionPool - DataSource closed
+2026-05-04 21:40:55.269 [main] INFO  com.example.demo.db.ConnectionPool - Deregistering JDBC drivers
+2026-05-04 21:40:55.271 [main] INFO  com.example.demo.db.ConnectionPool - Deregistered driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-05-04 21:40:55.272 [main] INFO  com.example.demo.db.ConnectionPool - Connection Pool shutdown complete
+2026-05-04 21:40:55.272 [main] INFO  com.example.demo.listener.AppContextListener - Application stopped cleanly
+2026-05-04 21:41:11.738 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application starting
+2026-05-04 21:41:11.749 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Initializing Connection Pool
+2026-05-04 21:41:11.776 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Driver loaded: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-05-04 21:41:12.318 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Connection Pool initialized successfully
+2026-05-04 21:41:12.318 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Pool size: 5, Min idle: 2
+2026-05-04 21:41:12.320 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Initial pool stats: active=0, idle=1, total=1, waiting=0
+2026-05-04 21:41:12.320 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application started successfully
+2026-05-04 21:41:39.421 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Initializing Controller
+2026-05-04 21:41:39.422 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Controller initialized successfully
+2026-05-04 21:41:39.425 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-04 21:41:39.579 [http-nio-8080-exec-5] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+2026-05-04 21:41:39.580 [http-nio-8080-exec-5] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-05-04 21:41:39.612 [http-nio-8080-exec-5] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+2026-05-04 21:41:39.615 [http-nio-8080-exec-5] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+2026-05-04 21:41:39.618 [http-nio-8080-exec-5] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2026-05-04 21:41:39.618 [http-nio-8080-exec-5] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+2026-05-04 21:41:39.634 [http-nio-8080-exec-5] DEBUG org.hibernate.validator.internal.engine.resolver.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2026-05-04 21:41:39.719 [http-nio-8080-exec-5] DEBUG org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+2026-05-04 21:41:40.212 [http-nio-8080-exec-5] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2026-05-04 21:41:40.249 [http-nio-8080-exec-5] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2026-05-04 21:41:40.257 [http-nio-8080-exec-5] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2026-05-04 21:41:40.257 [http-nio-8080-exec-5] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2026-05-04 21:41:40.257 [http-nio-8080-exec-5] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2026-05-04 21:41:40.257 [http-nio-8080-exec-5] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2026-05-04 21:41:40.426 [http-nio-8080-exec-5] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: testemail
+2026-05-04 21:41:40.427 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-04 21:41:40.441 [http-nio-8080-exec-5] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-04 21:41:40.510 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-04 21:41:40.512 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-04 21:41:40.594 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1002
+2026-05-04 21:41:40.638 [http-nio-8080-exec-5] WARN  com.example.demo.service.impl.UserServiceImpl - User testemail not confirmed
+2026-05-04 21:41:40.641 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-04 21:41:50.853 [http-nio-8080-exec-1] INFO  com.example.demo.controller.Controller - Received command: ADD_USER
+2026-05-04 21:41:51.143 [http-nio-8080-exec-1] DEBUG com.example.demo.service.impl.UserServiceImpl - Attempting to register user: testemail1
+2026-05-04 21:41:51.144 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail1
+2026-05-04 21:41:51.147 [http-nio-8080-exec-1] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-04 21:41:51.148 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-04 21:41:51.148 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail1
+2026-05-04 21:41:51.156 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - User not found: testemail1
+2026-05-04 21:41:51.156 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by email: zheniasor@gmail.com
+2026-05-04 21:41:51.156 [http-nio-8080-exec-1] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-04 21:41:51.164 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1002
+2026-05-04 21:41:51.164 [http-nio-8080-exec-1] WARN  com.example.demo.service.impl.UserServiceImpl - Registration failed - email already exists: zheniasor@gmail.com
+2026-05-04 21:41:51.165 [http-nio-8080-exec-1] WARN  com.example.demo.command.impl.AddUserCommand - User already exists: testemail1
+2026-05-04 21:41:51.165 [http-nio-8080-exec-1] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/register.jsp
+2026-05-04 21:42:24.351 [http-nio-8080-exec-4] INFO  com.example.demo.controller.Controller - Received command: ADD_USER
+2026-05-04 21:42:24.354 [http-nio-8080-exec-4] DEBUG com.example.demo.service.impl.UserServiceImpl - Attempting to register user: zheniasor
+2026-05-04 21:42:24.355 [http-nio-8080-exec-4] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: zheniasor
+2026-05-04 21:42:24.359 [http-nio-8080-exec-4] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-04 21:42:24.361 [http-nio-8080-exec-4] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-04 21:42:24.361 [http-nio-8080-exec-4] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=zheniasor
+2026-05-04 21:42:24.381 [http-nio-8080-exec-4] DEBUG com.example.demo.dao.impl.UserDaoImpl - User not found: zheniasor
+2026-05-04 21:42:24.382 [http-nio-8080-exec-4] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by email: zheniasor@gmail.com
+2026-05-04 21:42:24.382 [http-nio-8080-exec-4] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-04 21:42:24.387 [http-nio-8080-exec-4] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1002
+2026-05-04 21:42:24.387 [http-nio-8080-exec-4] WARN  com.example.demo.service.impl.UserServiceImpl - Registration failed - email already exists: zheniasor@gmail.com
+2026-05-04 21:42:24.387 [http-nio-8080-exec-4] WARN  com.example.demo.command.impl.AddUserCommand - User already exists: zheniasor
+2026-05-04 21:42:24.387 [http-nio-8080-exec-4] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/register.jsp
+2026-05-04 21:42:50.328 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Received command: ADD_USER
+2026-05-04 21:42:50.331 [http-nio-8080-exec-8] DEBUG com.example.demo.service.impl.UserServiceImpl - Attempting to register user: testemail
+2026-05-04 21:42:50.332 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-04 21:42:50.335 [http-nio-8080-exec-8] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-04 21:42:50.336 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-04 21:42:50.337 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-04 21:42:50.360 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1002
+2026-05-04 21:42:50.360 [http-nio-8080-exec-8] WARN  com.example.demo.service.impl.UserServiceImpl - Registration failed - user already exists: testemail
+2026-05-04 21:42:50.360 [http-nio-8080-exec-8] WARN  com.example.demo.command.impl.AddUserCommand - User already exists: testemail
+2026-05-04 21:42:50.360 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/register.jsp
+2026-05-06 17:36:59.604 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application starting
+2026-05-06 17:36:59.617 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Initializing Connection Pool
+2026-05-06 17:36:59.662 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Driver loaded: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-05-06 17:37:00.368 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Connection Pool initialized successfully
+2026-05-06 17:37:00.368 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Pool size: 5, Min idle: 2
+2026-05-06 17:37:00.370 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Initial pool stats: active=0, idle=1, total=1, waiting=0
+2026-05-06 17:37:00.371 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application started successfully
+2026-05-06 17:37:24.963 [http-nio-8080-exec-1] INFO  com.example.demo.controller.Controller - Initializing Controller
+2026-05-06 17:37:24.963 [http-nio-8080-exec-1] INFO  com.example.demo.controller.Controller - Controller initialized successfully
+2026-05-06 17:37:24.965 [http-nio-8080-exec-1] INFO  com.example.demo.controller.Controller - Received command: ADD_USER
+2026-05-06 17:37:25.130 [http-nio-8080-exec-1] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+2026-05-06 17:37:25.131 [http-nio-8080-exec-1] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-05-06 17:37:25.163 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+2026-05-06 17:37:25.167 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+2026-05-06 17:37:25.170 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2026-05-06 17:37:25.170 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+2026-05-06 17:37:25.191 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.engine.resolver.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2026-05-06 17:37:25.284 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+2026-05-06 17:37:25.931 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2026-05-06 17:37:25.970 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2026-05-06 17:37:25.972 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2026-05-06 17:37:25.973 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2026-05-06 17:37:25.973 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2026-05-06 17:37:25.974 [http-nio-8080-exec-1] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2026-05-06 17:37:26.681 [http-nio-8080-exec-1] DEBUG com.example.demo.service.impl.UserServiceImpl - Attempting to register user: testemail
+2026-05-06 17:37:26.683 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 17:37:26.703 [http-nio-8080-exec-1] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:37:26.811 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:37:26.812 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 17:37:26.877 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1002
+2026-05-06 17:37:26.898 [http-nio-8080-exec-1] WARN  com.example.demo.service.impl.UserServiceImpl - Registration failed - user already exists: testemail
+2026-05-06 17:37:26.898 [http-nio-8080-exec-1] WARN  com.example.demo.command.impl.AddUserCommand - User already exists: testemail
+2026-05-06 17:37:26.899 [http-nio-8080-exec-1] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/register.jsp
+2026-05-06 17:37:35.435 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Received command: ADD_USER
+2026-05-06 17:37:35.437 [http-nio-8080-exec-8] DEBUG com.example.demo.service.impl.UserServiceImpl - Attempting to register user: testemail123
+2026-05-06 17:37:35.439 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail123
+2026-05-06 17:37:35.442 [http-nio-8080-exec-8] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:37:35.443 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:37:35.443 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail123
+2026-05-06 17:37:35.453 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - User not found: testemail123
+2026-05-06 17:37:35.454 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by email: zheniasor@gmail.com
+2026-05-06 17:37:35.454 [http-nio-8080-exec-8] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:37:35.468 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1002
+2026-05-06 17:37:35.469 [http-nio-8080-exec-8] WARN  com.example.demo.service.impl.UserServiceImpl - Registration failed - email already exists: zheniasor@gmail.com
+2026-05-06 17:37:35.469 [http-nio-8080-exec-8] WARN  com.example.demo.command.impl.AddUserCommand - User already exists: testemail123
+2026-05-06 17:37:35.470 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/register.jsp
+2026-05-06 17:38:19.038 [main] INFO  com.example.demo.listener.AppContextListener - Application stopping
+2026-05-06 17:38:19.039 [main] INFO  com.example.demo.listener.AppContextListener - Final pool stats: active=0, idle=2, total=2, waiting=0
+2026-05-06 17:38:19.039 [main] INFO  com.example.demo.db.ConnectionPool - Shutting down Connection Pool
+2026-05-06 17:38:19.048 [main] INFO  com.example.demo.db.ConnectionPool - DataSource closed
+2026-05-06 17:38:19.048 [main] INFO  com.example.demo.db.ConnectionPool - Deregistering JDBC drivers
+2026-05-06 17:38:19.049 [main] INFO  com.example.demo.db.ConnectionPool - Deregistered driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-05-06 17:38:19.049 [main] INFO  com.example.demo.db.ConnectionPool - Connection Pool shutdown complete
+2026-05-06 17:38:19.049 [main] INFO  com.example.demo.listener.AppContextListener - Application stopped cleanly
+2026-05-06 17:38:27.333 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application starting
+2026-05-06 17:38:27.365 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Initializing Connection Pool
+2026-05-06 17:38:27.448 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Driver loaded: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-05-06 17:38:28.356 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Connection Pool initialized successfully
+2026-05-06 17:38:28.357 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Pool size: 5, Min idle: 2
+2026-05-06 17:38:28.370 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Initial pool stats: active=0, idle=1, total=1, waiting=0
+2026-05-06 17:38:28.371 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application started successfully
+2026-05-06 17:38:39.992 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Initializing Controller
+2026-05-06 17:38:39.993 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Controller initialized successfully
+2026-05-06 17:38:39.996 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-06 17:38:40.138 [http-nio-8080-exec-8] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+2026-05-06 17:38:40.139 [http-nio-8080-exec-8] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-05-06 17:38:40.168 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+2026-05-06 17:38:40.171 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+2026-05-06 17:38:40.173 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2026-05-06 17:38:40.173 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+2026-05-06 17:38:40.185 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.engine.resolver.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2026-05-06 17:38:40.274 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+2026-05-06 17:38:40.786 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2026-05-06 17:38:40.817 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2026-05-06 17:38:40.818 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2026-05-06 17:38:40.818 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2026-05-06 17:38:40.819 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2026-05-06 17:38:40.819 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2026-05-06 17:38:40.990 [http-nio-8080-exec-8] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: testemail
+2026-05-06 17:38:40.991 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 17:38:41.004 [http-nio-8080-exec-8] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:38:41.089 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:38:41.089 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 17:38:41.126 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - User not found: testemail
+2026-05-06 17:38:41.147 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-06 17:38:46.531 [http-nio-8080-exec-2] INFO  com.example.demo.controller.Controller - Received command: ADD_USER
+2026-05-06 17:38:47.013 [http-nio-8080-exec-2] DEBUG com.example.demo.service.impl.UserServiceImpl - Attempting to register user: testemail
+2026-05-06 17:38:47.015 [http-nio-8080-exec-2] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 17:38:47.017 [http-nio-8080-exec-2] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:38:47.019 [http-nio-8080-exec-2] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:38:47.019 [http-nio-8080-exec-2] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 17:38:47.026 [http-nio-8080-exec-2] DEBUG com.example.demo.dao.impl.UserDaoImpl - User not found: testemail
+2026-05-06 17:38:47.027 [http-nio-8080-exec-2] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by email: zheniasor@gmail.com
+2026-05-06 17:38:47.027 [http-nio-8080-exec-2] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:38:47.036 [http-nio-8080-exec-2] DEBUG com.example.demo.util.PasswordEncoder - Hashing password
+2026-05-06 17:38:47.245 [http-nio-8080-exec-2] DEBUG com.example.demo.util.PasswordEncoder - Password hashed successfully
+2026-05-06 17:38:47.246 [http-nio-8080-exec-2] DEBUG com.example.demo.dao.impl.UserDaoImpl - Inserting user: testemail
+2026-05-06 17:38:47.246 [http-nio-8080-exec-2] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:38:47.267 [http-nio-8080-exec-2] DEBUG com.example.demo.dao.impl.UserDaoImpl - Insert affected rows: 1
+2026-05-06 17:38:47.302 [http-nio-8080-exec-2] INFO  com.example.demo.dao.impl.UserDaoImpl - User inserted successfully with ID: 1
+2026-05-06 17:38:49.555 [http-nio-8080-exec-2] INFO  com.example.demo.service.impl.MailServiceImpl - Email sent successfully to: zheniasor@gmail.com
+2026-05-06 17:38:49.556 [http-nio-8080-exec-2] INFO  com.example.demo.service.impl.UserServiceImpl - User registered successfully, confirmation email sent: testemail
+2026-05-06 17:38:49.556 [http-nio-8080-exec-2] INFO  com.example.demo.command.impl.AddUserCommand - User registered successfully, confirmation email sent: testemail
+2026-05-06 17:38:49.556 [http-nio-8080-exec-2] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/confirmation.jsp
+2026-05-06 17:39:01.322 [http-nio-8080-exec-3] INFO  com.example.demo.controller.Controller - Received command: CONFIRM
+2026-05-06 17:39:01.322 [http-nio-8080-exec-3] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by token
+2026-05-06 17:39:01.323 [http-nio-8080-exec-3] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by token: 27f6cbc3-8820-4e5c-99ed-845f7f1a4064
+2026-05-06 17:39:01.329 [http-nio-8080-exec-3] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:39:01.344 [http-nio-8080-exec-3] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1
+2026-05-06 17:39:01.344 [http-nio-8080-exec-3] DEBUG com.example.demo.service.impl.UserServiceImpl - Confirming user: 1
+2026-05-06 17:39:01.344 [http-nio-8080-exec-3] DEBUG com.example.demo.dao.impl.UserDaoImpl - Confirming user with ID: 1
+2026-05-06 17:39:01.345 [http-nio-8080-exec-3] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:39:01.345 [http-nio-8080-exec-3] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: UPDATE users SET confirmed = 1, confirmation_token = NULL WHERE id = ?
+2026-05-06 17:39:01.345 [http-nio-8080-exec-3] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: userId=1
+2026-05-06 17:39:01.353 [http-nio-8080-exec-3] INFO  com.example.demo.dao.impl.UserDaoImpl - Confirm user ID: 1 - 1 rows affected
+2026-05-06 17:39:01.354 [http-nio-8080-exec-3] INFO  com.example.demo.command.impl.ConfirmCommand - User testemail confirmed email successfully
+2026-05-06 17:39:01.354 [http-nio-8080-exec-3] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-06 17:39:11.623 [http-nio-8080-exec-7] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-06 17:39:11.624 [http-nio-8080-exec-7] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: testemail
+2026-05-06 17:39:11.625 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 17:39:11.629 [http-nio-8080-exec-7] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:39:11.629 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:39:11.629 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 17:39:11.641 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1
+2026-05-06 17:39:11.642 [http-nio-8080-exec-7] DEBUG com.example.demo.util.PasswordEncoder - Checking password
+2026-05-06 17:39:11.813 [http-nio-8080-exec-7] DEBUG com.example.demo.util.PasswordEncoder - Password match: true
+2026-05-06 17:39:11.890 [http-nio-8080-exec-7] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: testemail
+2026-05-06 17:39:11.890 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 17:39:11.890 [http-nio-8080-exec-7] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:39:11.892 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:39:11.892 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 17:39:11.894 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1
+2026-05-06 17:39:11.895 [http-nio-8080-exec-7] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/main.jsp
+2026-05-06 17:39:27.879 [http-nio-8080-exec-4] INFO  com.example.demo.controller.Controller - Received command: EDIT_PROFILE
+2026-05-06 17:39:27.879 [http-nio-8080-exec-4] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: testemail
+2026-05-06 17:39:27.879 [http-nio-8080-exec-4] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 17:39:27.887 [http-nio-8080-exec-4] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:39:27.887 [http-nio-8080-exec-4] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:39:27.887 [http-nio-8080-exec-4] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 17:39:27.903 [http-nio-8080-exec-4] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1
+2026-05-06 17:39:27.904 [http-nio-8080-exec-4] DEBUG com.example.demo.service.impl.UserServiceImpl - Updating user: testemail
+2026-05-06 17:39:27.905 [http-nio-8080-exec-4] DEBUG com.example.demo.util.PasswordEncoder - Hashing password
+2026-05-06 17:39:28.075 [http-nio-8080-exec-4] DEBUG com.example.demo.util.PasswordEncoder - Password hashed successfully
+2026-05-06 17:39:28.076 [http-nio-8080-exec-4] DEBUG com.example.demo.dao.impl.UserDaoImpl - Attempting to update user with ID: 1
+2026-05-06 17:39:28.076 [http-nio-8080-exec-4] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:39:28.095 [http-nio-8080-exec-4] INFO  com.example.demo.dao.impl.UserDaoImpl - User updated successfully with ID: 1
+2026-05-06 17:39:28.095 [http-nio-8080-exec-4] INFO  com.example.demo.command.impl.EditProfileCommand - User testemail updated profile
+2026-05-06 17:39:28.095 [http-nio-8080-exec-4] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/main.jsp
+2026-05-06 17:39:29.196 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Received command: LOGOUT
+2026-05-06 17:39:29.197 [http-nio-8080-exec-5] INFO  com.example.demo.command.impl.LogoutCommand - User testemail logged out
+2026-05-06 17:39:29.197 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-06 17:39:33.752 [http-nio-8080-exec-7] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-06 17:39:33.752 [http-nio-8080-exec-7] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: testemail
+2026-05-06 17:39:33.752 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 17:39:33.755 [http-nio-8080-exec-7] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:39:33.755 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:39:33.756 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 17:39:33.763 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1
+2026-05-06 17:39:33.763 [http-nio-8080-exec-7] DEBUG com.example.demo.util.PasswordEncoder - Checking password
+2026-05-06 17:39:33.925 [http-nio-8080-exec-7] DEBUG com.example.demo.util.PasswordEncoder - Password match: true
+2026-05-06 17:39:33.926 [http-nio-8080-exec-7] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: testemail
+2026-05-06 17:39:33.926 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 17:39:33.926 [http-nio-8080-exec-7] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:39:33.926 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:39:33.926 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 17:39:33.928 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1
+2026-05-06 17:39:33.929 [http-nio-8080-exec-7] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/main.jsp
+2026-05-06 17:47:12.820 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Received command: LOGOUT
+2026-05-06 17:47:12.837 [http-nio-8080-exec-10] INFO  com.example.demo.command.impl.LogoutCommand - User testemail logged out
+2026-05-06 17:47:12.837 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-06 17:47:23.084 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Received command: ADD_USER
+2026-05-06 17:47:23.106 [http-nio-8080-exec-5] DEBUG com.example.demo.service.impl.UserServiceImpl - Attempting to register user: admin
+2026-05-06 17:47:23.107 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 17:47:23.132 [http-nio-8080-exec-5] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:47:23.135 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:47:23.135 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 17:47:23.185 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - User not found: admin
+2026-05-06 17:47:23.187 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by email: zheniasor@gmail.com
+2026-05-06 17:47:23.187 [http-nio-8080-exec-5] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:47:23.201 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1
+2026-05-06 17:47:23.203 [http-nio-8080-exec-5] WARN  com.example.demo.service.impl.UserServiceImpl - Registration failed - email already exists: zheniasor@gmail.com
+2026-05-06 17:47:23.207 [http-nio-8080-exec-5] WARN  com.example.demo.command.impl.AddUserCommand - User already exists: admin
+2026-05-06 17:47:23.207 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/register.jsp
+2026-05-06 17:50:19.761 [http-nio-8080-exec-7] INFO  com.example.demo.controller.Controller - Received command: ADD_USER
+2026-05-06 17:50:19.780 [http-nio-8080-exec-7] DEBUG com.example.demo.service.impl.UserServiceImpl - Attempting to register user: admin
+2026-05-06 17:50:19.781 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 17:50:19.811 [http-nio-8080-exec-7] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:50:19.813 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:50:19.814 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 17:50:19.891 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - User not found: admin
+2026-05-06 17:50:19.892 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by email: papeichaiok@gmail.com
+2026-05-06 17:50:19.892 [http-nio-8080-exec-7] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:50:19.905 [http-nio-8080-exec-7] DEBUG com.example.demo.util.PasswordEncoder - Hashing password
+2026-05-06 17:50:20.083 [http-nio-8080-exec-7] DEBUG com.example.demo.util.PasswordEncoder - Password hashed successfully
+2026-05-06 17:50:20.084 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - Inserting user: admin
+2026-05-06 17:50:20.085 [http-nio-8080-exec-7] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:50:20.127 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - Insert affected rows: 1
+2026-05-06 17:50:20.131 [http-nio-8080-exec-7] INFO  com.example.demo.dao.impl.UserDaoImpl - User inserted successfully with ID: 2
+2026-05-06 17:50:21.990 [http-nio-8080-exec-7] INFO  com.example.demo.service.impl.MailServiceImpl - Email sent successfully to: papeichaiok@gmail.com
+2026-05-06 17:50:21.991 [http-nio-8080-exec-7] INFO  com.example.demo.service.impl.UserServiceImpl - User registered successfully, confirmation email sent: admin
+2026-05-06 17:50:21.991 [http-nio-8080-exec-7] INFO  com.example.demo.command.impl.AddUserCommand - User registered successfully, confirmation email sent: admin
+2026-05-06 17:50:21.991 [http-nio-8080-exec-7] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/confirmation.jsp
+2026-05-06 17:50:48.390 [http-nio-8080-exec-2] INFO  com.example.demo.controller.Controller - Received command: CONFIRM
+2026-05-06 17:50:48.392 [http-nio-8080-exec-2] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by token
+2026-05-06 17:50:48.392 [http-nio-8080-exec-2] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by token: e73bd842-6acb-4be7-9f4d-92a505c70536
+2026-05-06 17:50:48.398 [http-nio-8080-exec-2] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:50:48.427 [http-nio-8080-exec-2] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 17:50:48.428 [http-nio-8080-exec-2] DEBUG com.example.demo.service.impl.UserServiceImpl - Confirming user: 2
+2026-05-06 17:50:48.429 [http-nio-8080-exec-2] DEBUG com.example.demo.dao.impl.UserDaoImpl - Confirming user with ID: 2
+2026-05-06 17:50:48.429 [http-nio-8080-exec-2] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:50:48.430 [http-nio-8080-exec-2] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: UPDATE users SET confirmed = 1, confirmation_token = NULL WHERE id = ?
+2026-05-06 17:50:48.431 [http-nio-8080-exec-2] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: userId=2
+2026-05-06 17:50:48.447 [http-nio-8080-exec-2] INFO  com.example.demo.dao.impl.UserDaoImpl - Confirm user ID: 2 - 1 rows affected
+2026-05-06 17:50:48.449 [http-nio-8080-exec-2] INFO  com.example.demo.command.impl.ConfirmCommand - User admin confirmed email successfully
+2026-05-06 17:50:48.449 [http-nio-8080-exec-2] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-06 17:50:50.586 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-06 17:50:50.587 [http-nio-8080-exec-5] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: admin
+2026-05-06 17:50:50.587 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 17:50:50.589 [http-nio-8080-exec-5] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:50:50.589 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:50:50.591 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 17:50:50.603 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 17:50:50.604 [http-nio-8080-exec-5] DEBUG com.example.demo.util.PasswordEncoder - Checking password
+2026-05-06 17:50:50.771 [http-nio-8080-exec-5] DEBUG com.example.demo.util.PasswordEncoder - Password match: true
+2026-05-06 17:50:50.776 [http-nio-8080-exec-5] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: admin
+2026-05-06 17:50:50.776 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 17:50:50.776 [http-nio-8080-exec-5] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:50:50.777 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:50:50.777 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 17:50:50.780 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 17:50:50.781 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/main.jsp
+2026-05-06 17:50:51.957 [http-nio-8080-exec-9] INFO  com.example.demo.controller.Controller - Received command: LOGOUT
+2026-05-06 17:50:51.958 [http-nio-8080-exec-9] INFO  com.example.demo.command.impl.LogoutCommand - User admin logged out
+2026-05-06 17:50:51.958 [http-nio-8080-exec-9] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-06 17:51:41.046 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-06 17:51:41.047 [http-nio-8080-exec-6] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: admin
+2026-05-06 17:51:41.049 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 17:51:41.053 [http-nio-8080-exec-6] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:51:41.054 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:51:41.054 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 17:51:41.065 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 17:51:41.066 [http-nio-8080-exec-6] DEBUG com.example.demo.util.PasswordEncoder - Checking password
+2026-05-06 17:51:41.231 [http-nio-8080-exec-6] DEBUG com.example.demo.util.PasswordEncoder - Password match: true
+2026-05-06 17:51:41.231 [http-nio-8080-exec-6] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: admin
+2026-05-06 17:51:41.231 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 17:51:41.232 [http-nio-8080-exec-6] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:51:41.232 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:51:41.233 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 17:51:41.235 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 17:51:41.235 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/main.jsp
+2026-05-06 17:51:46.702 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Received command: EDIT_PROFILE
+2026-05-06 17:51:46.703 [http-nio-8080-exec-10] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: admin
+2026-05-06 17:51:46.703 [http-nio-8080-exec-10] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 17:51:46.706 [http-nio-8080-exec-10] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:51:46.707 [http-nio-8080-exec-10] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:51:46.707 [http-nio-8080-exec-10] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 17:51:46.727 [http-nio-8080-exec-10] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 17:51:46.730 [http-nio-8080-exec-10] DEBUG com.example.demo.service.impl.UserServiceImpl - Updating user: admin
+2026-05-06 17:51:46.730 [http-nio-8080-exec-10] DEBUG com.example.demo.util.PasswordEncoder - Hashing password
+2026-05-06 17:51:46.974 [http-nio-8080-exec-10] DEBUG com.example.demo.util.PasswordEncoder - Password hashed successfully
+2026-05-06 17:51:46.975 [http-nio-8080-exec-10] DEBUG com.example.demo.dao.impl.UserDaoImpl - Attempting to update user with ID: 2
+2026-05-06 17:51:46.975 [http-nio-8080-exec-10] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:51:47.021 [http-nio-8080-exec-10] INFO  com.example.demo.dao.impl.UserDaoImpl - User updated successfully with ID: 2
+2026-05-06 17:51:47.021 [http-nio-8080-exec-10] INFO  com.example.demo.command.impl.EditProfileCommand - User admin updated profile
+2026-05-06 17:51:47.021 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/main.jsp
+2026-05-06 17:53:19.821 [main] INFO  com.example.demo.listener.AppContextListener - Application stopping
+2026-05-06 17:53:19.828 [main] INFO  com.example.demo.listener.AppContextListener - Final pool stats: active=0, idle=2, total=2, waiting=0
+2026-05-06 17:53:19.829 [main] INFO  com.example.demo.db.ConnectionPool - Shutting down Connection Pool
+2026-05-06 17:53:19.853 [main] INFO  com.example.demo.db.ConnectionPool - DataSource closed
+2026-05-06 17:53:19.854 [main] INFO  com.example.demo.db.ConnectionPool - Deregistering JDBC drivers
+2026-05-06 17:53:19.860 [main] INFO  com.example.demo.db.ConnectionPool - Deregistered driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-05-06 17:53:19.860 [main] INFO  com.example.demo.db.ConnectionPool - Connection Pool shutdown complete
+2026-05-06 17:53:19.860 [main] INFO  com.example.demo.listener.AppContextListener - Application stopped cleanly
+2026-05-06 17:53:36.918 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application starting
+2026-05-06 17:53:36.946 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Initializing Connection Pool
+2026-05-06 17:53:37.019 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Driver loaded: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-05-06 17:53:38.060 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Connection Pool initialized successfully
+2026-05-06 17:53:38.060 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Pool size: 5, Min idle: 2
+2026-05-06 17:53:38.063 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Initial pool stats: active=0, idle=1, total=1, waiting=0
+2026-05-06 17:53:38.063 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application started successfully
+2026-05-06 17:53:44.840 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Initializing Controller
+2026-05-06 17:53:44.841 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Controller initialized successfully
+2026-05-06 17:53:44.844 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-06 17:53:45.003 [http-nio-8080-exec-6] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+2026-05-06 17:53:45.004 [http-nio-8080-exec-6] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-05-06 17:53:45.051 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+2026-05-06 17:53:45.054 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+2026-05-06 17:53:45.057 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2026-05-06 17:53:45.058 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+2026-05-06 17:53:45.083 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.engine.resolver.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2026-05-06 17:53:45.184 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+2026-05-06 17:53:45.587 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2026-05-06 17:53:45.607 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2026-05-06 17:53:45.607 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2026-05-06 17:53:45.607 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2026-05-06 17:53:45.608 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2026-05-06 17:53:45.608 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2026-05-06 17:53:45.739 [http-nio-8080-exec-6] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: admin
+2026-05-06 17:53:45.739 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 17:53:45.756 [http-nio-8080-exec-6] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:53:45.817 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:53:45.817 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 17:53:45.857 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 17:53:45.876 [http-nio-8080-exec-6] DEBUG com.example.demo.util.PasswordEncoder - Checking password
+2026-05-06 17:53:46.069 [http-nio-8080-exec-6] DEBUG com.example.demo.util.PasswordEncoder - Password match: true
+2026-05-06 17:53:46.119 [http-nio-8080-exec-6] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: admin
+2026-05-06 17:53:46.120 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 17:53:46.121 [http-nio-8080-exec-6] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:53:46.121 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:53:46.121 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 17:53:46.124 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 17:53:46.125 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/main.jsp
+2026-05-06 17:53:54.498 [http-nio-8080-exec-1] INFO  com.example.demo.controller.Controller - Received command: LOGOUT
+2026-05-06 17:53:54.499 [http-nio-8080-exec-1] INFO  com.example.demo.command.impl.LogoutCommand - User admin logged out
+2026-05-06 17:53:54.500 [http-nio-8080-exec-1] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-06 17:55:12.361 [http-nio-8080-exec-9] INFO  com.example.demo.controller.Controller - Received command: ADMIN_PANEL
+2026-05-06 17:55:12.362 [http-nio-8080-exec-9] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-06 17:55:19.656 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Received command: ADMIN_PANEL
+2026-05-06 17:55:19.657 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-06 17:55:22.108 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-06 17:55:22.109 [http-nio-8080-exec-5] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: admin
+2026-05-06 17:55:22.110 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 17:55:22.129 [http-nio-8080-exec-5] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:55:22.131 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:55:22.131 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 17:55:22.169 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 17:55:22.170 [http-nio-8080-exec-5] DEBUG com.example.demo.util.PasswordEncoder - Checking password
+2026-05-06 17:55:22.344 [http-nio-8080-exec-5] DEBUG com.example.demo.util.PasswordEncoder - Password match: true
+2026-05-06 17:55:22.345 [http-nio-8080-exec-5] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: admin
+2026-05-06 17:55:22.346 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 17:55:22.346 [http-nio-8080-exec-5] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:55:22.347 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:55:22.347 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 17:55:22.378 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 17:55:22.379 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/main.jsp
+2026-05-06 17:55:53.196 [http-nio-8080-exec-7] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-06 17:55:53.197 [http-nio-8080-exec-7] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: admin
+2026-05-06 17:55:53.198 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 17:55:53.203 [http-nio-8080-exec-7] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:55:53.204 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:55:53.204 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 17:55:53.215 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 17:55:53.216 [http-nio-8080-exec-7] DEBUG com.example.demo.util.PasswordEncoder - Checking password
+2026-05-06 17:55:53.380 [http-nio-8080-exec-7] DEBUG com.example.demo.util.PasswordEncoder - Password match: true
+2026-05-06 17:55:53.380 [http-nio-8080-exec-7] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: admin
+2026-05-06 17:55:53.380 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 17:55:53.380 [http-nio-8080-exec-7] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:55:53.381 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:55:53.381 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 17:55:53.388 [http-nio-8080-exec-7] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 17:55:53.389 [http-nio-8080-exec-7] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/main.jsp
+2026-05-06 17:55:59.513 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Received command: ADMIN_PANEL
+2026-05-06 17:55:59.513 [http-nio-8080-exec-5] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: admin
+2026-05-06 17:55:59.513 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 17:55:59.515 [http-nio-8080-exec-5] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:55:59.517 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:55:59.517 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 17:55:59.526 [http-nio-8080-exec-5] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 17:55:59.527 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-06 17:56:01.021 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-06 17:56:01.021 [http-nio-8080-exec-10] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: admin
+2026-05-06 17:56:01.021 [http-nio-8080-exec-10] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 17:56:01.025 [http-nio-8080-exec-10] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:56:01.027 [http-nio-8080-exec-10] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:56:01.027 [http-nio-8080-exec-10] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 17:56:01.040 [http-nio-8080-exec-10] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 17:56:01.041 [http-nio-8080-exec-10] DEBUG com.example.demo.util.PasswordEncoder - Checking password
+2026-05-06 17:56:01.207 [http-nio-8080-exec-10] DEBUG com.example.demo.util.PasswordEncoder - Password match: true
+2026-05-06 17:56:01.207 [http-nio-8080-exec-10] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: admin
+2026-05-06 17:56:01.207 [http-nio-8080-exec-10] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 17:56:01.208 [http-nio-8080-exec-10] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:56:01.208 [http-nio-8080-exec-10] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:56:01.208 [http-nio-8080-exec-10] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 17:56:01.217 [http-nio-8080-exec-10] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 17:56:01.217 [http-nio-8080-exec-10] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/main.jsp
+2026-05-06 17:58:43.563 [http-nio-8080-exec-7] INFO  com.example.demo.controller.Controller - Received command: LOGOUT
+2026-05-06 17:58:43.577 [http-nio-8080-exec-7] INFO  com.example.demo.command.impl.LogoutCommand - User admin logged out
+2026-05-06 17:58:43.577 [http-nio-8080-exec-7] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-06 17:58:44.523 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Received command: LOGOUT
+2026-05-06 17:58:44.525 [http-nio-8080-exec-6] INFO  com.example.demo.command.impl.LogoutCommand - User null logged out
+2026-05-06 17:58:44.525 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-06 17:58:45.628 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-06 17:58:45.630 [http-nio-8080-exec-8] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: admin
+2026-05-06 17:58:45.631 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 17:58:45.673 [http-nio-8080-exec-8] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:58:45.676 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:58:45.677 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 17:58:45.840 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 17:58:45.842 [http-nio-8080-exec-8] DEBUG com.example.demo.util.PasswordEncoder - Checking password
+2026-05-06 17:58:46.009 [http-nio-8080-exec-8] DEBUG com.example.demo.util.PasswordEncoder - Password match: true
+2026-05-06 17:58:46.010 [http-nio-8080-exec-8] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: admin
+2026-05-06 17:58:46.010 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 17:58:46.010 [http-nio-8080-exec-8] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 17:58:46.010 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed FROM users WHERE login = ?
+2026-05-06 17:58:46.010 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 17:58:46.026 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 17:58:46.028 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/main.jsp
+2026-05-06 18:01:03.384 [main] INFO  com.example.demo.listener.AppContextListener - Application stopping
+2026-05-06 18:01:03.386 [main] INFO  com.example.demo.listener.AppContextListener - Final pool stats: active=0, idle=2, total=2, waiting=0
+2026-05-06 18:01:03.387 [main] INFO  com.example.demo.db.ConnectionPool - Shutting down Connection Pool
+2026-05-06 18:01:03.421 [main] INFO  com.example.demo.db.ConnectionPool - DataSource closed
+2026-05-06 18:01:03.422 [main] INFO  com.example.demo.db.ConnectionPool - Deregistering JDBC drivers
+2026-05-06 18:01:03.424 [main] INFO  com.example.demo.db.ConnectionPool - Deregistered driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-05-06 18:01:03.424 [main] INFO  com.example.demo.db.ConnectionPool - Connection Pool shutdown complete
+2026-05-06 18:01:03.424 [main] INFO  com.example.demo.listener.AppContextListener - Application stopped cleanly
+2026-05-06 18:01:15.847 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application starting
+2026-05-06 18:01:15.865 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Initializing Connection Pool
+2026-05-06 18:01:15.903 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Driver loaded: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-05-06 18:01:16.620 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Connection Pool initialized successfully
+2026-05-06 18:01:16.620 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Pool size: 5, Min idle: 2
+2026-05-06 18:01:16.622 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Initial pool stats: active=0, idle=1, total=1, waiting=0
+2026-05-06 18:01:16.622 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application started successfully
+2026-05-06 18:01:20.498 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Initializing Controller
+2026-05-06 18:01:20.498 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Controller initialized successfully
+2026-05-06 18:01:20.501 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-06 18:01:20.641 [http-nio-8080-exec-6] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+2026-05-06 18:01:20.642 [http-nio-8080-exec-6] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-05-06 18:01:20.678 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+2026-05-06 18:01:20.682 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+2026-05-06 18:01:20.684 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2026-05-06 18:01:20.685 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+2026-05-06 18:01:20.709 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.engine.resolver.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2026-05-06 18:01:20.822 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+2026-05-06 18:01:21.327 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2026-05-06 18:01:21.358 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2026-05-06 18:01:21.358 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2026-05-06 18:01:21.359 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2026-05-06 18:01:21.359 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2026-05-06 18:01:21.359 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2026-05-06 18:01:21.585 [http-nio-8080-exec-6] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: admin
+2026-05-06 18:01:21.585 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 18:01:21.601 [http-nio-8080-exec-6] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 18:01:21.663 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role FROM users WHERE login = ?
+2026-05-06 18:01:21.664 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 18:01:21.753 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 18:01:21.779 [http-nio-8080-exec-6] DEBUG com.example.demo.util.PasswordEncoder - Checking password
+2026-05-06 18:01:21.996 [http-nio-8080-exec-6] DEBUG com.example.demo.util.PasswordEncoder - Password match: true
+2026-05-06 18:01:22.037 [http-nio-8080-exec-6] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: admin
+2026-05-06 18:01:22.038 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 18:01:22.038 [http-nio-8080-exec-6] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 18:01:22.038 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role FROM users WHERE login = ?
+2026-05-06 18:01:22.038 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 18:01:22.047 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 18:01:22.048 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/main.jsp
+2026-05-06 18:01:23.818 [http-nio-8080-exec-9] INFO  com.example.demo.controller.Controller - Received command: ADMIN_PANEL
+2026-05-06 18:01:23.820 [http-nio-8080-exec-9] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: admin
+2026-05-06 18:01:23.820 [http-nio-8080-exec-9] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 18:01:23.829 [http-nio-8080-exec-9] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 18:01:23.829 [http-nio-8080-exec-9] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role FROM users WHERE login = ?
+2026-05-06 18:01:23.830 [http-nio-8080-exec-9] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 18:01:23.856 [http-nio-8080-exec-9] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 18:01:23.857 [http-nio-8080-exec-9] DEBUG com.example.demo.service.impl.UserServiceImpl - Fetching all users
+2026-05-06 18:01:23.857 [http-nio-8080-exec-9] DEBUG com.example.demo.dao.impl.UserDaoImpl - Fetching all users from database
+2026-05-06 18:01:23.857 [http-nio-8080-exec-9] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 18:01:23.864 [http-nio-8080-exec-9] DEBUG com.example.demo.dao.impl.UserDaoImpl - Found 2 users in database
+2026-05-06 18:01:23.866 [http-nio-8080-exec-9] INFO  com.example.demo.command.impl.AdminPanelCommand - Admin admin accessed admin panel
+2026-05-06 18:01:23.866 [http-nio-8080-exec-9] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/adminPanel.jsp
+2026-05-06 18:04:41.807 [http-nio-8080-exec-3] INFO  com.example.demo.controller.Controller - Received command: LOGOUT
+2026-05-06 18:04:41.826 [http-nio-8080-exec-3] INFO  com.example.demo.command.impl.LogoutCommand - User admin logged out
+2026-05-06 18:04:41.827 [http-nio-8080-exec-3] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-06 18:04:47.040 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-06 18:04:47.042 [http-nio-8080-exec-6] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: testemail
+2026-05-06 18:04:47.043 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 18:04:47.083 [http-nio-8080-exec-6] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 18:04:47.087 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role FROM users WHERE login = ?
+2026-05-06 18:04:47.087 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 18:04:47.161 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1
+2026-05-06 18:04:47.162 [http-nio-8080-exec-6] DEBUG com.example.demo.util.PasswordEncoder - Checking password
+2026-05-06 18:04:47.337 [http-nio-8080-exec-6] DEBUG com.example.demo.util.PasswordEncoder - Password match: true
+2026-05-06 18:04:47.339 [http-nio-8080-exec-6] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: testemail
+2026-05-06 18:04:47.340 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 18:04:47.340 [http-nio-8080-exec-6] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 18:04:47.340 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role FROM users WHERE login = ?
+2026-05-06 18:04:47.341 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 18:04:47.343 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1
+2026-05-06 18:04:47.343 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/main.jsp
+2026-05-06 18:04:50.824 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Received command: LOGOUT
+2026-05-06 18:04:50.826 [http-nio-8080-exec-5] INFO  com.example.demo.command.impl.LogoutCommand - User testemail logged out
+2026-05-06 18:04:50.826 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-06 18:13:24.412 [main] INFO  com.example.demo.listener.AppContextListener - Application stopping
+2026-05-06 18:13:24.416 [main] INFO  com.example.demo.listener.AppContextListener - Final pool stats: active=0, idle=2, total=2, waiting=0
+2026-05-06 18:13:24.417 [main] INFO  com.example.demo.db.ConnectionPool - Shutting down Connection Pool
+2026-05-06 18:13:24.431 [main] INFO  com.example.demo.db.ConnectionPool - DataSource closed
+2026-05-06 18:13:24.432 [main] INFO  com.example.demo.db.ConnectionPool - Deregistering JDBC drivers
+2026-05-06 18:13:24.435 [main] INFO  com.example.demo.db.ConnectionPool - Deregistered driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-05-06 18:13:24.435 [main] INFO  com.example.demo.db.ConnectionPool - Connection Pool shutdown complete
+2026-05-06 18:13:24.435 [main] INFO  com.example.demo.listener.AppContextListener - Application stopped cleanly
+2026-05-06 18:13:43.683 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application starting
+2026-05-06 18:13:43.703 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Initializing Connection Pool
+2026-05-06 18:13:43.750 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Driver loaded: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-05-06 18:13:44.888 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Connection Pool initialized successfully
+2026-05-06 18:13:44.888 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Pool size: 5, Min idle: 2
+2026-05-06 18:13:44.893 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Initial pool stats: active=0, idle=1, total=1, waiting=0
+2026-05-06 18:13:44.893 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application started successfully
+2026-05-06 18:14:19.817 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Initializing Controller
+2026-05-06 18:14:19.818 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Controller initialized successfully
+2026-05-06 18:14:19.822 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-06 18:14:19.955 [http-nio-8080-exec-8] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+2026-05-06 18:14:19.957 [http-nio-8080-exec-8] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-05-06 18:14:19.992 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+2026-05-06 18:14:19.997 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+2026-05-06 18:14:20.000 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2026-05-06 18:14:20.001 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+2026-05-06 18:14:20.014 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.engine.resolver.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2026-05-06 18:14:20.107 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+2026-05-06 18:14:20.320 [http-nio-8080-exec-9] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-06 18:14:20.523 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2026-05-06 18:14:20.555 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2026-05-06 18:14:20.557 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2026-05-06 18:14:20.557 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2026-05-06 18:14:20.557 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2026-05-06 18:14:20.558 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2026-05-06 18:14:20.707 [http-nio-8080-exec-8] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: testemail
+2026-05-06 18:14:20.707 [http-nio-8080-exec-9] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: testemail
+2026-05-06 18:14:20.707 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 18:14:20.708 [http-nio-8080-exec-9] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 18:14:20.721 [http-nio-8080-exec-9] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 2, Idle: 0
+2026-05-06 18:14:20.721 [http-nio-8080-exec-8] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 2, Idle: 0
+2026-05-06 18:14:20.784 [http-nio-8080-exec-9] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role, avatar_path FROM users WHERE login = ?
+2026-05-06 18:14:20.785 [http-nio-8080-exec-9] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 18:14:20.784 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role, avatar_path FROM users WHERE login = ?
+2026-05-06 18:14:20.785 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 18:14:20.901 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1
+2026-05-06 18:14:20.901 [http-nio-8080-exec-9] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1
+2026-05-06 18:14:20.929 [http-nio-8080-exec-8] DEBUG com.example.demo.util.PasswordEncoder - Checking password
+2026-05-06 18:14:20.929 [http-nio-8080-exec-9] DEBUG com.example.demo.util.PasswordEncoder - Checking password
+2026-05-06 18:14:21.232 [http-nio-8080-exec-8] DEBUG com.example.demo.util.PasswordEncoder - Password match: true
+2026-05-06 18:14:21.236 [http-nio-8080-exec-9] DEBUG com.example.demo.util.PasswordEncoder - Password match: true
+2026-05-06 18:14:21.270 [http-nio-8080-exec-8] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: testemail
+2026-05-06 18:14:21.270 [http-nio-8080-exec-9] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: testemail
+2026-05-06 18:14:21.270 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 18:14:21.270 [http-nio-8080-exec-9] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 18:14:21.270 [http-nio-8080-exec-9] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 2, Idle: 0
+2026-05-06 18:14:21.270 [http-nio-8080-exec-8] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 2, Idle: 0
+2026-05-06 18:14:21.271 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role, avatar_path FROM users WHERE login = ?
+2026-05-06 18:14:21.271 [http-nio-8080-exec-9] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role, avatar_path FROM users WHERE login = ?
+2026-05-06 18:14:21.271 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 18:14:21.271 [http-nio-8080-exec-9] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 18:14:21.287 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1
+2026-05-06 18:14:21.287 [http-nio-8080-exec-9] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1
+2026-05-06 18:14:21.288 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/main.jsp
+2026-05-06 18:14:21.288 [http-nio-8080-exec-9] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/main.jsp
+2026-05-06 18:14:38.478 [http-nio-8080-exec-4] INFO  com.example.demo.controller.Controller - Received command: UPLOAD_AVATAR
+2026-05-06 18:14:38.490 [http-nio-8080-exec-4] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: testemail
+2026-05-06 18:14:38.491 [http-nio-8080-exec-4] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 18:14:38.495 [http-nio-8080-exec-4] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 18:14:38.496 [http-nio-8080-exec-4] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role, avatar_path FROM users WHERE login = ?
+2026-05-06 18:14:38.496 [http-nio-8080-exec-4] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 18:14:38.521 [http-nio-8080-exec-4] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1
+2026-05-06 18:14:38.522 [http-nio-8080-exec-4] DEBUG com.example.demo.service.impl.UserServiceImpl - Updating avatar for user ID: 1
+2026-05-06 18:14:38.522 [http-nio-8080-exec-4] DEBUG com.example.demo.dao.impl.UserDaoImpl - Updating avatar for user ID: 1
+2026-05-06 18:14:38.522 [http-nio-8080-exec-4] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 18:14:38.557 [http-nio-8080-exec-4] INFO  com.example.demo.dao.impl.UserDaoImpl - Avatar updated for user ID: 1 - 1 rows affected
+2026-05-06 18:14:38.558 [http-nio-8080-exec-4] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/editProfile.jsp
+2026-05-06 18:14:57.618 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Received command: UPLOAD_AVATAR
+2026-05-06 18:14:57.622 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/editProfile.jsp
+2026-05-06 18:16:11.533 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Received command: UPLOAD_AVATAR
+2026-05-06 18:16:11.544 [http-nio-8080-exec-6] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: testemail
+2026-05-06 18:16:11.544 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 18:16:11.551 [http-nio-8080-exec-6] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 18:16:11.552 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role, avatar_path FROM users WHERE login = ?
+2026-05-06 18:16:11.552 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 18:16:11.578 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1
+2026-05-06 18:16:11.578 [http-nio-8080-exec-6] DEBUG com.example.demo.service.impl.UserServiceImpl - Updating avatar for user ID: 1
+2026-05-06 18:16:11.579 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Updating avatar for user ID: 1
+2026-05-06 18:16:11.579 [http-nio-8080-exec-6] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 18:16:11.586 [http-nio-8080-exec-6] INFO  com.example.demo.dao.impl.UserDaoImpl - Avatar updated for user ID: 1 - 1 rows affected
+2026-05-06 18:16:11.586 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/editProfile.jsp
+2026-05-06 18:16:26.234 [http-nio-8080-exec-2] INFO  com.example.demo.controller.Controller - Received command: UPLOAD_AVATAR
+2026-05-06 18:16:26.245 [http-nio-8080-exec-2] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: testemail
+2026-05-06 18:16:26.245 [http-nio-8080-exec-2] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 18:16:26.248 [http-nio-8080-exec-2] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 18:16:26.248 [http-nio-8080-exec-2] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role, avatar_path FROM users WHERE login = ?
+2026-05-06 18:16:26.248 [http-nio-8080-exec-2] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 18:16:26.263 [http-nio-8080-exec-2] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1
+2026-05-06 18:16:26.264 [http-nio-8080-exec-2] DEBUG com.example.demo.service.impl.UserServiceImpl - Updating avatar for user ID: 1
+2026-05-06 18:16:26.264 [http-nio-8080-exec-2] DEBUG com.example.demo.dao.impl.UserDaoImpl - Updating avatar for user ID: 1
+2026-05-06 18:16:26.264 [http-nio-8080-exec-2] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 18:16:26.270 [http-nio-8080-exec-2] INFO  com.example.demo.dao.impl.UserDaoImpl - Avatar updated for user ID: 1 - 1 rows affected
+2026-05-06 18:16:26.270 [http-nio-8080-exec-2] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/editProfile.jsp
+2026-05-06 18:19:21.178 [http-nio-8080-exec-3] INFO  com.example.demo.controller.Controller - Received command: UPLOAD_AVATAR
+2026-05-06 18:19:21.199 [http-nio-8080-exec-3] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: testemail
+2026-05-06 18:19:21.200 [http-nio-8080-exec-3] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 18:19:21.222 [http-nio-8080-exec-3] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 18:19:21.224 [http-nio-8080-exec-3] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role, avatar_path FROM users WHERE login = ?
+2026-05-06 18:19:21.225 [http-nio-8080-exec-3] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 18:19:21.346 [http-nio-8080-exec-3] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1
+2026-05-06 18:19:21.346 [http-nio-8080-exec-3] DEBUG com.example.demo.service.impl.UserServiceImpl - Updating avatar for user ID: 1
+2026-05-06 18:19:21.347 [http-nio-8080-exec-3] DEBUG com.example.demo.dao.impl.UserDaoImpl - Updating avatar for user ID: 1
+2026-05-06 18:19:21.347 [http-nio-8080-exec-3] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 18:19:21.361 [http-nio-8080-exec-3] INFO  com.example.demo.dao.impl.UserDaoImpl - Avatar updated for user ID: 1 - 1 rows affected
+2026-05-06 18:19:21.362 [http-nio-8080-exec-3] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/editProfile.jsp
+2026-05-06 18:21:46.418 [main] INFO  com.example.demo.listener.AppContextListener - Application stopping
+2026-05-06 18:21:46.421 [main] INFO  com.example.demo.listener.AppContextListener - Final pool stats: active=0, idle=2, total=2, waiting=0
+2026-05-06 18:21:46.421 [main] INFO  com.example.demo.db.ConnectionPool - Shutting down Connection Pool
+2026-05-06 18:21:46.460 [main] INFO  com.example.demo.db.ConnectionPool - DataSource closed
+2026-05-06 18:21:46.460 [main] INFO  com.example.demo.db.ConnectionPool - Deregistering JDBC drivers
+2026-05-06 18:21:46.461 [main] INFO  com.example.demo.db.ConnectionPool - Deregistered driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-05-06 18:21:46.461 [main] INFO  com.example.demo.db.ConnectionPool - Connection Pool shutdown complete
+2026-05-06 18:21:46.462 [main] INFO  com.example.demo.listener.AppContextListener - Application stopped cleanly
+2026-05-06 18:21:58.993 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application starting
+2026-05-06 18:21:59.010 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Initializing Connection Pool
+2026-05-06 18:21:59.059 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Driver loaded: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-05-06 18:21:59.617 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Connection Pool initialized successfully
+2026-05-06 18:21:59.617 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Pool size: 5, Min idle: 2
+2026-05-06 18:21:59.619 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Initial pool stats: active=0, idle=1, total=1, waiting=0
+2026-05-06 18:21:59.619 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application started successfully
+2026-05-06 18:22:03.266 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Initializing Controller
+2026-05-06 18:22:03.266 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Controller initialized successfully
+2026-05-06 18:22:03.269 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-06 18:22:03.421 [http-nio-8080-exec-6] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+2026-05-06 18:22:03.422 [http-nio-8080-exec-6] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-05-06 18:22:03.451 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+2026-05-06 18:22:03.454 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+2026-05-06 18:22:03.455 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2026-05-06 18:22:03.456 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+2026-05-06 18:22:03.467 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.engine.resolver.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2026-05-06 18:22:03.568 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+2026-05-06 18:22:04.261 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2026-05-06 18:22:04.298 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2026-05-06 18:22:04.300 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2026-05-06 18:22:04.300 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2026-05-06 18:22:04.300 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2026-05-06 18:22:04.300 [http-nio-8080-exec-6] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2026-05-06 18:22:04.495 [http-nio-8080-exec-6] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: testemail
+2026-05-06 18:22:04.496 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 18:22:04.509 [http-nio-8080-exec-6] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 18:22:04.591 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role, avatar_path FROM users WHERE login = ?
+2026-05-06 18:22:04.592 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 18:22:04.780 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1
+2026-05-06 18:22:04.814 [http-nio-8080-exec-6] DEBUG com.example.demo.util.PasswordEncoder - Checking password
+2026-05-06 18:22:05.007 [http-nio-8080-exec-6] DEBUG com.example.demo.util.PasswordEncoder - Password match: true
+2026-05-06 18:22:05.048 [http-nio-8080-exec-6] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: testemail
+2026-05-06 18:22:05.048 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 18:22:05.048 [http-nio-8080-exec-6] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 18:22:05.050 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role, avatar_path FROM users WHERE login = ?
+2026-05-06 18:22:05.050 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 18:22:05.064 [http-nio-8080-exec-6] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1
+2026-05-06 18:22:05.065 [http-nio-8080-exec-6] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/main.jsp
+2026-05-06 22:29:04.314 [main] INFO  com.example.demo.listener.AppContextListener - Application stopping
+2026-05-06 22:29:04.320 [main] INFO  com.example.demo.listener.AppContextListener - Final pool stats: active=0, idle=2, total=2, waiting=0
+2026-05-06 22:29:04.321 [main] INFO  com.example.demo.db.ConnectionPool - Shutting down Connection Pool
+2026-05-06 22:29:04.437 [main] INFO  com.example.demo.db.ConnectionPool - DataSource closed
+2026-05-06 22:29:04.438 [main] INFO  com.example.demo.db.ConnectionPool - Deregistering JDBC drivers
+2026-05-06 22:29:04.440 [main] INFO  com.example.demo.db.ConnectionPool - Deregistered driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-05-06 22:29:04.440 [main] INFO  com.example.demo.db.ConnectionPool - Connection Pool shutdown complete
+2026-05-06 22:29:04.440 [main] INFO  com.example.demo.listener.AppContextListener - Application stopped cleanly
+2026-05-06 22:49:42.701 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application starting
+2026-05-06 22:49:42.713 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Initializing Connection Pool
+2026-05-06 22:49:42.744 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Driver loaded: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-05-06 22:49:43.239 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Connection Pool initialized successfully
+2026-05-06 22:49:43.239 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.db.ConnectionPool - Pool size: 5, Min idle: 2
+2026-05-06 22:49:43.242 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Initial pool stats: active=0, idle=1, total=1, waiting=0
+2026-05-06 22:49:43.242 [RMI TCP Connection(2)-127.0.0.1] INFO  com.example.demo.listener.AppContextListener - Application started successfully
+2026-05-06 22:49:48.774 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Initializing Controller
+2026-05-06 22:49:48.776 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Controller initialized successfully
+2026-05-06 22:49:48.779 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-06 22:49:49.000 [http-nio-8080-exec-8] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+2026-05-06 22:49:49.002 [http-nio-8080-exec-8] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-05-06 22:49:49.050 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+2026-05-06 22:49:49.055 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+2026-05-06 22:49:49.057 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2026-05-06 22:49:49.058 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+2026-05-06 22:49:49.084 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.engine.resolver.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2026-05-06 22:49:49.224 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+2026-05-06 22:49:50.139 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2026-05-06 22:49:50.180 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2026-05-06 22:49:50.182 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2026-05-06 22:49:50.182 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2026-05-06 22:49:50.183 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2026-05-06 22:49:50.184 [http-nio-8080-exec-8] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2026-05-06 22:49:51.716 [http-nio-8080-exec-8] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: testemail
+2026-05-06 22:49:51.718 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 22:49:51.735 [http-nio-8080-exec-8] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 22:49:52.100 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role, avatar_path FROM users WHERE login = ?
+2026-05-06 22:49:52.101 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 22:49:52.495 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1
+2026-05-06 22:49:52.536 [http-nio-8080-exec-8] DEBUG com.example.demo.util.PasswordEncoder - Checking password
+2026-05-06 22:49:52.820 [http-nio-8080-exec-8] DEBUG com.example.demo.util.PasswordEncoder - Password match: true
+2026-05-06 22:49:52.897 [http-nio-8080-exec-8] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: testemail
+2026-05-06 22:49:52.899 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: testemail
+2026-05-06 22:49:52.899 [http-nio-8080-exec-8] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 22:49:52.901 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role, avatar_path FROM users WHERE login = ?
+2026-05-06 22:49:52.901 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=testemail
+2026-05-06 22:49:52.911 [http-nio-8080-exec-8] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 1
+2026-05-06 22:49:52.912 [http-nio-8080-exec-8] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/main.jsp
+2026-05-06 22:50:07.954 [http-nio-8080-exec-4] INFO  com.example.demo.controller.Controller - Received command: UPLOAD_AVATAR
+2026-05-06 22:50:07.955 [http-nio-8080-exec-4] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/editProfile.jsp
+2026-05-06 22:50:15.053 [http-nio-8080-exec-7] INFO  com.example.demo.controller.Controller - Received command: LOGOUT
+2026-05-06 22:50:15.055 [http-nio-8080-exec-7] INFO  com.example.demo.command.impl.LogoutCommand - User testemail logged out
+2026-05-06 22:50:15.056 [http-nio-8080-exec-7] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-06 22:50:19.170 [http-nio-8080-exec-1] INFO  com.example.demo.controller.Controller - Received command: LOGIN
+2026-05-06 22:50:19.171 [http-nio-8080-exec-1] DEBUG com.example.demo.service.impl.UserServiceImpl - Authenticating user: admin
+2026-05-06 22:50:19.173 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 22:50:19.185 [http-nio-8080-exec-1] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 22:50:19.185 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role, avatar_path FROM users WHERE login = ?
+2026-05-06 22:50:19.185 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 22:50:19.203 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 22:50:19.205 [http-nio-8080-exec-1] DEBUG com.example.demo.util.PasswordEncoder - Checking password
+2026-05-06 22:50:19.378 [http-nio-8080-exec-1] DEBUG com.example.demo.util.PasswordEncoder - Password match: true
+2026-05-06 22:50:19.378 [http-nio-8080-exec-1] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: admin
+2026-05-06 22:50:19.378 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 22:50:19.378 [http-nio-8080-exec-1] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 22:50:19.379 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role, avatar_path FROM users WHERE login = ?
+2026-05-06 22:50:19.379 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 22:50:19.381 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 22:50:19.381 [http-nio-8080-exec-1] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/main.jsp
+2026-05-06 22:50:33.598 [http-nio-8080-exec-3] INFO  com.example.demo.controller.Controller - Received command: UPLOAD_AVATAR
+2026-05-06 22:50:33.608 [http-nio-8080-exec-3] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: admin
+2026-05-06 22:50:33.609 [http-nio-8080-exec-3] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 22:50:33.613 [http-nio-8080-exec-3] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 22:50:33.613 [http-nio-8080-exec-3] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role, avatar_path FROM users WHERE login = ?
+2026-05-06 22:50:33.614 [http-nio-8080-exec-3] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 22:50:33.622 [http-nio-8080-exec-3] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 22:50:33.623 [http-nio-8080-exec-3] DEBUG com.example.demo.service.impl.UserServiceImpl - Updating avatar for user ID: 2
+2026-05-06 22:50:33.623 [http-nio-8080-exec-3] DEBUG com.example.demo.dao.impl.UserDaoImpl - Updating avatar for user ID: 2
+2026-05-06 22:50:33.623 [http-nio-8080-exec-3] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 22:50:33.649 [http-nio-8080-exec-3] INFO  com.example.demo.dao.impl.UserDaoImpl - Avatar updated for user ID: 2 - 1 rows affected
+2026-05-06 22:50:33.650 [http-nio-8080-exec-3] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: admin
+2026-05-06 22:50:33.650 [http-nio-8080-exec-3] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 22:50:33.650 [http-nio-8080-exec-3] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 22:50:33.650 [http-nio-8080-exec-3] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role, avatar_path FROM users WHERE login = ?
+2026-05-06 22:50:33.650 [http-nio-8080-exec-3] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 22:50:33.654 [http-nio-8080-exec-3] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 22:50:33.654 [http-nio-8080-exec-3] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/editProfile.jsp
+2026-05-06 22:50:41.109 [http-nio-8080-exec-1] INFO  com.example.demo.controller.Controller - Received command: ADMIN_PANEL
+2026-05-06 22:50:41.111 [http-nio-8080-exec-1] DEBUG com.example.demo.service.impl.UserServiceImpl - Finding user by login: admin
+2026-05-06 22:50:41.111 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - Finding user by login: admin
+2026-05-06 22:50:41.114 [http-nio-8080-exec-1] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 22:50:41.114 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - SQL: SELECT id, login, password, email, confirmed, role, avatar_path FROM users WHERE login = ?
+2026-05-06 22:50:41.114 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - Parameter: login=admin
+2026-05-06 22:50:41.129 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - User found with ID: 2
+2026-05-06 22:50:41.129 [http-nio-8080-exec-1] DEBUG com.example.demo.service.impl.UserServiceImpl - Fetching all users
+2026-05-06 22:50:41.129 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - Fetching all users from database
+2026-05-06 22:50:41.129 [http-nio-8080-exec-1] DEBUG com.example.demo.db.ConnectionPool - Connection obtained. Active: 1, Idle: 1
+2026-05-06 22:50:41.144 [http-nio-8080-exec-1] DEBUG com.example.demo.dao.impl.UserDaoImpl - Found 2 users in database
+2026-05-06 22:50:41.144 [http-nio-8080-exec-1] INFO  com.example.demo.command.impl.AdminPanelCommand - Admin admin accessed admin panel
+2026-05-06 22:50:41.145 [http-nio-8080-exec-1] INFO  com.example.demo.controller.Controller - Forwarding to page: pages/adminPanel.jsp
+2026-05-06 22:50:48.134 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Received command: LOGOUT
+2026-05-06 22:50:48.137 [http-nio-8080-exec-5] INFO  com.example.demo.command.impl.LogoutCommand - User admin logged out
+2026-05-06 22:50:48.138 [http-nio-8080-exec-5] INFO  com.example.demo.controller.Controller - Forwarding to page: index.jsp
+2026-05-06 22:50:54.399 [main] INFO  com.example.demo.listener.AppContextListener - Application stopping
+2026-05-06 22:50:54.400 [main] INFO  com.example.demo.listener.AppContextListener - Final pool stats: active=0, idle=2, total=2, waiting=0
+2026-05-06 22:50:54.400 [main] INFO  com.example.demo.db.ConnectionPool - Shutting down Connection Pool
+2026-05-06 22:50:54.405 [main] INFO  com.example.demo.db.ConnectionPool - DataSource closed
+2026-05-06 22:50:54.405 [main] INFO  com.example.demo.db.ConnectionPool - Deregistering JDBC drivers
+2026-05-06 22:50:54.406 [main] INFO  com.example.demo.db.ConnectionPool - Deregistered driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+2026-05-06 22:50:54.406 [main] INFO  com.example.demo.db.ConnectionPool - Connection Pool shutdown complete
+2026-05-06 22:50:54.406 [main] INFO  com.example.demo.listener.AppContextListener - Application stopped cleanly

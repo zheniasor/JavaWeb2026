@@ -23,7 +23,7 @@ public class ConfirmCommand implements Command {
         String token = request.getParameter(ParameterConstants.TOKEN_PARAM);
 
         if (token == null || token.isBlank()) {
-            request.setAttribute(AttributeConstants.ERROR_MESSAGE_ATTR, "Invalid confirmation link");
+            request.setAttribute(AttributeConstants.ERROR_MESSAGE_ATTR, "Неверная ссылка для подтверждения");
             return PageConstants.INDEX_PAGE;
         }
 
@@ -33,7 +33,7 @@ public class ConfirmCommand implements Command {
             Optional<User> userOpt = userService.findByToken(token);
 
             if (userOpt.isEmpty()) {
-                request.setAttribute(AttributeConstants.ERROR_MESSAGE_ATTR, "Invalid or expired confirmation link");
+                request.setAttribute(AttributeConstants.ERROR_MESSAGE_ATTR, "Недействительная или просроченная ссылка для подтверждения");
                 return PageConstants.INDEX_PAGE;
             }
 
@@ -42,17 +42,17 @@ public class ConfirmCommand implements Command {
 
             if (confirmed) {
                 request.setAttribute(AttributeConstants.MESSAGE_ATTR,
-                        "Email confirmed successfully! You can now log in.");
+                        "Электронная почта успешно подтверждена! Теперь вы можете войти в систему.");
                 LOGGER.info("User {} confirmed email successfully", user.getLogin());
             } else {
                 request.setAttribute(AttributeConstants.ERROR_MESSAGE_ATTR,
-                        "Failed to confirm email");
+                        "Ошибка подтверждения электронной почты");
                 LOGGER.warn("Failed to confirm user: {}", user.getLogin());
             }
         } catch (DataException e) {
             LOGGER.error("Error during email confirmation", e);
             request.setAttribute(AttributeConstants.ERROR_MESSAGE_ATTR,
-                    "Server error during confirmation");
+                    "Ошибка сервера во время подтверждения");
         }
 
         return PageConstants.INDEX_PAGE;

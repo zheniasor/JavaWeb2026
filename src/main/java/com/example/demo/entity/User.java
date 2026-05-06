@@ -25,6 +25,9 @@ public class User extends AbstractEntity {
 
     private String confirmationToken;
     private boolean confirmed;
+    private String role = "USER";
+    private boolean active = true;
+    private String avatarPath;
 
     public User() {}
 
@@ -33,28 +36,18 @@ public class User extends AbstractEntity {
         this.password = password;
         this.email = email;
         this.confirmed = false;
+        this.role = "USER";
+        this.active = true;
     }
 
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    public String getLogin() {
-        return login;
-    }
-    public void setLogin(String login) {
-        this.login = login;
-    }
+    public String getLogin() { return login; }
+    public void setLogin(String login) { this.login = login; }
 
-    public String getPassword() {
-        return password;
-    }
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
 
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
@@ -65,13 +58,22 @@ public class User extends AbstractEntity {
     public boolean isConfirmed() { return confirmed; }
     public void setConfirmed(boolean confirmed) { this.confirmed = confirmed; }
 
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
+
+    public boolean isActive() { return active; }
+    public void setActive(boolean active) { this.active = active; }
+
+    public String getAvatarPath() { return avatarPath; }
+    public void setAvatarPath(String avatarPath) { this.avatarPath = avatarPath; }
+
+    public boolean isAdmin() { return "ADMIN".equals(role); }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         User user = (User) o;
-
         return login != null ? login.equals(user.login) : user.login == null;
     }
 
@@ -84,6 +86,8 @@ public class User extends AbstractEntity {
 
     @Override
     public String toString() {
-        return "User{id=" + id + ", login='" + login + "', email='" + email + "', confirmed=" + confirmed + "}";
+        return "User{id=" + id + ", login='" + login + "', email='" + email +
+                "', confirmed=" + confirmed + ", role='" + role + "', active=" + active +
+                ", avatarPath='" + avatarPath + "'}";
     }
 }

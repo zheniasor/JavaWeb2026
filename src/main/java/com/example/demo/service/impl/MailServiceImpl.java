@@ -19,7 +19,7 @@ public class MailServiceImpl implements MailService {
     private static final String SMTP_USER = "zheniasor@gmail.com";
     private static final String SMTP_PASSWORD = "dmauhftsshqyqvbx";
     private static final String FROM_EMAIL = "noreply@yourapp.com";
-    private static final String APP_URL = "http://100.68.15.21:8080/demo";
+    private static final String APP_URL = "http://localhost:8080/demo";
 
     private static MailService instance;
 

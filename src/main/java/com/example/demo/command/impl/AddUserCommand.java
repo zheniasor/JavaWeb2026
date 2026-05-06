@@ -46,13 +46,13 @@ public class AddUserCommand implements Command {
                 LOGGER.info("User registered successfully, confirmation email sent: {}", login);
                 return PageConstants.CONFIRMATION_PAGE;
             } else {
-                request.setAttribute("errorMessage", "User with this login already exists");
+                request.setAttribute("errorMessage", "Пользователь с таким логином или email уже существует");
                 page = PageConstants.REGISTER_PAGE;
                 LOGGER.warn("User already exists: {}", login);
             }
         } catch (DataException e) {
             LOGGER.error("Error during registration for user: {}", login, e);
-            request.setAttribute("errorMessage", "Registration failed due to server error");
+            request.setAttribute("errorMessage", "Регистрация не удалась из-за ошибки сервера");
             page = PageConstants.REGISTER_PAGE;
         }
 

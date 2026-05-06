@@ -13,6 +13,10 @@ public enum CommandType {
     LOGIN("LOGIN", new LoginCommand()),
     LOGOUT("LOGOUT", new LogoutCommand()),
     CONFIRM("CONFIRM", new ConfirmCommand()),
+    EDIT_PROFILE("EDIT_PROFILE", new EditProfileCommand()),
+    DELETE_USER("DELETE_USER", new DeleteUserCommand()),
+    ADMIN_PANEL("ADMIN_PANEL", new AdminPanelCommand()),
+    UPLOAD_AVATAR("UPLOAD_AVATAR", new UploadAvatarCommand()),
     DEFAULT("DEFAULT", new DefaultCommand());
 
     private final String name;

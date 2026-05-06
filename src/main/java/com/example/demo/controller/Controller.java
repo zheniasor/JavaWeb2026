@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.command.Command;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,6 +12,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @WebServlet(urlPatterns = {"/controller", "*.do"})
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024 * 2,
+        maxFileSize = 1024 * 1024 * 5,
+        maxRequestSize = 1024 * 1024 * 10
+)
 public class Controller extends HttpServlet {
 
     private static final Logger LOGGER = LogManager.getLogger(Controller.class);

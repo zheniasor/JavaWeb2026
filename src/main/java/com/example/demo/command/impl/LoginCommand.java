@@ -4,13 +4,17 @@ import com.example.demo.command.Command;
 import com.example.demo.command.PageConstants;
 import com.example.demo.command.AttributeConstants;
 import com.example.demo.controller.ParameterConstants;
+import com.example.demo.entity.User;
 import com.example.demo.exception.DataException;
 import com.example.demo.service.UserService;
 import com.example.demo.service.impl.UserServiceImpl;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.Optional;
 
 public class LoginCommand implements Command {
 
@@ -32,7 +36,16 @@ public class LoginCommand implements Command {
         try {
             if (userService.authenticate(login, password)) {
                 String escapedLogin = StringEscapeUtils.escapeHtml4(login);
-                request.getSession().setAttribute(AttributeConstants.USER_ATTR, escapedLogin);
+                HttpSession session = request.getSession();
+                session.setAttribute(AttributeConstants.USER_ATTR, escapedLogin);
+
+                Optional<User> userOpt = userService.findByLogin(login);
+                if (userOpt.isPresent()) {
+                    User user = userOpt.get();
+                    session.setAttribute("userRole", user.getRole());
+                    session.setAttribute("userAvatar", user.getAvatarPath());
+                }
+
                 page = PageConstants.MAIN_PAGE;
             } else {
                 request.setAttribute(AttributeConstants.ERROR_MESSAGE_ATTR, "Неверный логин или пароль");

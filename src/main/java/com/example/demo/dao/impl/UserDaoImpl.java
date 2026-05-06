@@ -23,16 +23,18 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
     private static final Logger LOGGER = LogManager.getLogger(UserDaoImpl.class);
     private final UserMapper userMapper = new UserMapperImpl();
 
-    private static final String SELECT_ALL = "SELECT id, login, password, email, confirmed FROM users";
-    private static final String SELECT_BY_LOGIN = "SELECT id, login, password, email, confirmed FROM users WHERE login = ?";
+    private static final String SELECT_ALL = "SELECT id, login, password, email, confirmed, role, avatar_path FROM users";
+    private static final String SELECT_BY_LOGIN = "SELECT id, login, password, email, confirmed, role, avatar_path FROM users WHERE login = ?";
+    private static final String SELECT_BY_EMAIL = "SELECT id, login, password, email, confirmed, role, avatar_path FROM users WHERE email = ?";
+    private static final String SELECT_BY_TOKEN = "SELECT id, login, password, email, confirmed, role, avatar_path FROM users WHERE confirmation_token = ?";
+    private static final String SELECT_BY_ID = "SELECT id, login, password, email, confirmed, role, avatar_path FROM users WHERE id = ?";
+    private static final String UPDATE_AVATAR = "UPDATE users SET avatar_path = ? WHERE id = ?";
     private static final String SELECT_PASSWORD_BY_LOGIN = "SELECT password FROM users WHERE login = ?";
     private static final String INSERT_USER =
             "INSERT INTO users (login, password, email, confirmation_token, confirmed) VALUES (?, ?, ?, ?, ?)";
     private static final String UPDATE_USER = "UPDATE users SET login = ?, password = ? WHERE id = ?";
     private static final String DELETE = "DELETE FROM users WHERE id = ?";
-    private static final String SELECT_BY_EMAIL = "SELECT id, login, password, email, confirmed FROM users WHERE email = ?";
-    private static final String SELECT_BY_TOKEN = "SELECT id, login, password, email, confirmed FROM users WHERE confirmation_token = ?";
-    private static final String UPDATE_CONFIRMED = "UPDATE users SET confirmed = 1, confirmation_token = NULL WHERE id = ?";
+   private static final String UPDATE_CONFIRMED = "UPDATE users SET confirmed = 1, confirmation_token = NULL WHERE id = ?";
 
     @Override
     public boolean insert(User user) throws DataException {
@@ -298,6 +300,55 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
         } catch (SQLException e) {
             LOGGER.error("SQL Error confirming user with ID: " + userId, e);
             throw new DataException("Failed to confirm user with ID: " + userId, e);
+        }
+    }
+
+    @Override
+    public boolean deleteUser(int userId) throws DataException {
+        LOGGER.debug("Deleting user with ID: {}", userId);
+
+        try (Connection connection = ConnectionPool.getInstance().getConnection()) {
+            connection.setAutoCommit(false);
+
+            try {
+                String sql = "DELETE FROM users WHERE id = ?";
+                try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                    statement.setInt(1, userId);
+                    int affectedRows = statement.executeUpdate();
+
+                    connection.commit();
+                    LOGGER.info("User with ID: {} deleted successfully", userId);
+                    return affectedRows > 0;
+                }
+            } catch (SQLException e) {
+                connection.rollback();
+                LOGGER.error("SQL Error deleting user with ID: " + userId, e);
+                throw new DataException("Failed to delete user with ID: " + userId, e);
+            } finally {
+                connection.setAutoCommit(true);
+            }
+        } catch (SQLException e) {
+            LOGGER.error("Connection error while deleting user", e);
+            throw new DataException("Connection error", e);
+        }
+    }
+
+    @Override
+    public boolean updateAvatar(int userId, String avatarPath) throws DataException {
+        LOGGER.debug("Updating avatar for user ID: {}", userId);
+
+        try (Connection connection = ConnectionPool.getInstance().getConnection();
+             PreparedStatement statement = connection.prepareStatement(UPDATE_AVATAR)) {
+
+            statement.setString(1, avatarPath);
+            statement.setInt(2, userId);
+
+            int affectedRows = statement.executeUpdate();
+            LOGGER.info("Avatar updated for user ID: {} - {} rows affected", userId, affectedRows);
+            return affectedRows > 0;
+        } catch (SQLException e) {
+            LOGGER.error("SQL Error updating avatar for user ID: " + userId, e);
+            throw new DataException("Failed to update avatar for user ID: " + userId, e);
         }
     }
 }
