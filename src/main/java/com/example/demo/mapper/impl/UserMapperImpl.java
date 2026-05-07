@@ -18,13 +18,13 @@ public class UserMapperImpl implements UserMapper {
         user.setConfirmed(resultSet.getBoolean(ColumnName.CONFIRMED));
 
         try {
-            user.setRole(resultSet.getString("role"));
+            user.setRole(resultSet.getString(ColumnName.ROLE));
         } catch (SQLException e) {
             user.setRole("USER");
         }
 
         try {
-            user.setAvatarPath(resultSet.getString("avatar_path"));
+            user.setAvatarPath(resultSet.getString(ColumnName.AVATAR_PATH));
         } catch (SQLException e) {
             user.setAvatarPath(null);
         }

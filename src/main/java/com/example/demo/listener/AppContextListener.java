@@ -1,6 +1,7 @@
 package com.example.demo.listener;
 
 import com.example.demo.db.ConnectionPool;
+import com.example.demo.exception.DataException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,9 +18,14 @@ public class AppContextListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         LOGGER.info("Application starting");
 
-        ConnectionPool.PoolStats stats = ConnectionPool.getInstance().getStats();
-        LOGGER.info("Initial pool stats: active={}, idle={}, total={}, waiting={}",
-                stats.active(), stats.idle(), stats.total(), stats.waiting());
+        try {
+            ConnectionPool pool = ConnectionPool.getInstance();
+            LOGGER.info("Connection pool initialized successfully");
+            LOGGER.info("Pool size: {}, Active connections: {}, Free connections: {}",
+                    10, 0, 10);
+        } catch (DataException e) {
+            LOGGER.error("Failed to initialize connection pool", e);
+        }
 
         LOGGER.info("Application started successfully");
     }
@@ -28,11 +34,13 @@ public class AppContextListener implements ServletContextListener {
     public void contextDestroyed(ServletContextEvent sce) {
         LOGGER.info("Application stopping");
 
-        ConnectionPool.PoolStats stats = ConnectionPool.getInstance().getStats();
-        LOGGER.info("Final pool stats: active={}, idle={}, total={}, waiting={}",
-                stats.active(), stats.idle(), stats.total(), stats.waiting());
-
-        ConnectionPool.getInstance().shutdown();
+        try {
+            ConnectionPool pool = ConnectionPool.getInstance();
+            pool.close();
+            LOGGER.info("Connection pool closed successfully");
+        } catch (DataException e) {
+            LOGGER.error("Failed to close connection pool", e);
+        }
 
         LOGGER.info("Application stopped cleanly");
     }

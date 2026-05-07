@@ -1,144 +1,91 @@
 package com.example.demo.db;
 
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
+import com.example.demo.exception.DataException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.Connection;
-import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Enumeration;
+import java.util.ArrayDeque;
+import java.util.Queue;
 
-public class ConnectionPool {
+public class ConnectionPool implements AutoCloseable {
 
     private static final Logger LOGGER = LogManager.getLogger(ConnectionPool.class);
+    private static ConnectionPool instance;
 
-    private static final String DB_URL = """
-        jdbc:sqlserver://ZHENIA;
-        instanceName=SQLEXPRESS02;
-        databaseName=UserManagementDB;
-        encrypt=true;
-        trustServerCertificate=true;""";
-    private static final String DB_USER = "app_user";
-    private static final String DB_PASSWORD = "123456";
-    private static final String DB_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    private static final String URL = "jdbc:sqlserver://ZHENIA;instanceName=SQLEXPRESS02;databaseName=UserManagementDB;encrypt=true;trustServerCertificate=true;";
+    private static final String USER = "app_user";
+    private static final String PASSWORD = "123456";
+    private static final int POOL_SIZE = 10;
 
-    private static final int POOL_SIZE = 5;
-    private static final int MIN_IDLE = 2;
-    private static final int CONNECTION_TIMEOUT = 3000;
-    private static final int IDLE_TIMEOUT = 300000;
-    private static final int MAX_LIFETIME = 600000;
+    private final Queue<Connection> freeConnections = new ArrayDeque<>();
+    private int activeConnections = 0;
 
-    private static HikariDataSource dataSource;
-    private static final ConnectionPool instance = new ConnectionPool();
-
-    private ConnectionPool() {
-        try {
-            LOGGER.info("Initializing Connection Pool");
-
-            Class.forName(DB_DRIVER);
-            LOGGER.info("Driver loaded: {}", DB_DRIVER);
-
-            HikariConfig config = new HikariConfig();
-
-            config.setJdbcUrl(DB_URL);
-            config.setUsername(DB_USER);
-            config.setPassword(DB_PASSWORD);
-            config.setDriverClassName(DB_DRIVER);
-
-            config.setMaximumPoolSize(POOL_SIZE);
-            config.setMinimumIdle(MIN_IDLE);
-            config.setConnectionTimeout(CONNECTION_TIMEOUT);
-            config.setIdleTimeout(IDLE_TIMEOUT);
-            config.setMaxLifetime(MAX_LIFETIME);
-
-            config.setConnectionTestQuery("SELECT 1");
-            config.setValidationTimeout(5000);
-
-            config.addDataSourceProperty("cachePrepStmts", "true");
-            config.addDataSourceProperty("prepStmtCacheSize", "250");
-            config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
-
-            config.setAutoCommit(true);
-
-            dataSource = new HikariDataSource(config);
-
-            LOGGER.info("Connection Pool initialized successfully");
-            LOGGER.info("Pool size: {}, Min idle: {}", POOL_SIZE, MIN_IDLE);
-
-        } catch (Exception e) {
-            LOGGER.fatal("Failed to initialize connection pool", e);
-            throw new ExceptionInInitializerError("Connection pool initialization failed: " + e.getMessage());
-        }
+    private ConnectionPool() throws DataException {
+        initializePool();
     }
 
-    public static ConnectionPool getInstance() {
+    public static synchronized ConnectionPool getInstance() throws DataException {
+        if (instance == null) {
+            instance = new ConnectionPool();
+        }
         return instance;
     }
 
-    public Connection getConnection() throws SQLException {
+    private void initializePool() throws DataException {
         try {
-            Connection connection = dataSource.getConnection();
-
-            int active = dataSource.getHikariPoolMXBean().getActiveConnections();
-            int idle = dataSource.getHikariPoolMXBean().getIdleConnections();
-            LOGGER.debug("Connection obtained. Active: {}, Idle: {}", active, idle);
-
-            return connection;
-        } catch (SQLException e) {
-            LOGGER.error("Failed to get connection from pool", e);
-            throw e;
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            for (int i = 0; i < POOL_SIZE; i++) {
+                freeConnections.add(createConnection());
+            }
+            LOGGER.info("Connection pool initialized with {} connections", POOL_SIZE);
+        } catch (Exception e) {
+            throw new DataException("Failed to initialize connection pool", e);
         }
     }
 
-    public void shutdown() {
-        LOGGER.info("Shutting down Connection Pool");
-
-        if (dataSource != null && !dataSource.isClosed()) {
-            dataSource.close();
-            LOGGER.info("DataSource closed");
-        }
-
-        deregisterDrivers();
-
-        LOGGER.info("Connection Pool shutdown complete");
+    private Connection createConnection() throws SQLException {
+        return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
-    private void deregisterDrivers() {
-        LOGGER.info("Deregistering JDBC drivers");
-
-        Enumeration<Driver> drivers = DriverManager.getDrivers();
-        while (drivers.hasMoreElements()) {
-            Driver driver = drivers.nextElement();
-
-            if (driver.getClass().getClassLoader() == ConnectionPool.class.getClassLoader()) {
-                try {
-                    DriverManager.deregisterDriver(driver);
-                    LOGGER.info("Deregistered driver: {}", driver.getClass().getName());
-                } catch (SQLException e) {
-                    LOGGER.error("Failed to deregister driver: {}", driver.getClass().getName(), e);
-                }
-            } else {
-                LOGGER.debug("Driver {} belongs to system - skipping", driver.getClass().getName());
+    public synchronized Connection getConnection() {
+        while (freeConnections.isEmpty() && activeConnections >= POOL_SIZE) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                throw new RuntimeException("Interrupted waiting for connection", e);
             }
         }
+
+        Connection conn = freeConnections.poll();
+        activeConnections++;
+        LOGGER.debug("Connection obtained. Active: {}, Free: {}", activeConnections, freeConnections.size());
+
+        // Возвращаем Proxy-обертку
+        return new ConnectionProxy(conn, this);
     }
 
-    public PoolStats getStats() {
-        if (dataSource == null || dataSource.isClosed()) {
-            return new PoolStats(0, 0, 0, 0);
+    synchronized void releaseConnection(Connection connection) {
+        freeConnections.add(connection);
+        activeConnections--;
+        LOGGER.debug("Connection released. Active: {}, Free: {}", activeConnections, freeConnections.size());
+        notifyAll();
+    }
+
+    @Override
+    public synchronized void close() {
+        for (Connection conn : freeConnections) {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                LOGGER.error("Error closing connection", e);
+            }
         }
-
-        var mxBean = dataSource.getHikariPoolMXBean();
-        return new PoolStats(
-                mxBean.getActiveConnections(),
-                mxBean.getIdleConnections(),
-                mxBean.getTotalConnections(),
-                mxBean.getThreadsAwaitingConnection()
-        );
+        freeConnections.clear();
+        activeConnections = 0;
+        LOGGER.info("Connection pool closed");
     }
-
-    public record PoolStats(int active, int idle, int total, int waiting) {}
 }

@@ -9,4 +9,6 @@ public final class ColumnName {
     public static final String PASSWORD = "password";
     public static final String EMAIL = "email";
     public static final String CONFIRMED = "confirmed";
+    public static final String ROLE = "role";
+    public static final String AVATAR_PATH = "avatar_path";
 }
