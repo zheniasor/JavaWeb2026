@@ -1,6 +1,7 @@
 package com.example.demo.command.impl;
 
 import com.example.demo.command.PageConstants;
+import com.example.demo.command.AttributeConstants;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.junit.jupiter.api.BeforeEach;
@@ -33,11 +34,22 @@ class LogoutCommandTest {
     @DisplayName("Должен завершить сессию и вернуть index.jsp")
     void execute_ShouldInvalidateSessionAndReturnIndexPage() {
         when(request.getSession(false)).thenReturn(session);
-        when(session.getAttribute("user")).thenReturn("john123");
+        when(session.getAttribute(AttributeConstants.USER_ATTR)).thenReturn("john123");
 
         String result = logoutCommand.execute(request);
 
         assertThat(result).isEqualTo(PageConstants.INDEX_PAGE);
         verify(session).invalidate();
+    }
+
+    @Test
+    @DisplayName("Должен вернуть index.jsp когда нет активной сессии")
+    void execute_ShouldReturnIndexPage_WhenNoActiveSession() {
+        when(request.getSession(false)).thenReturn(null);
+
+        String result = logoutCommand.execute(request);
+
+        assertThat(result).isEqualTo(PageConstants.INDEX_PAGE);
+        verify(session, never()).invalidate();
     }
 }

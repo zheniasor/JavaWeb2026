@@ -22,12 +22,6 @@ public class Controller extends HttpServlet {
     private static final Logger LOGGER = LogManager.getLogger(Controller.class);
 
     @Override
-    public void init() {
-        LOGGER.info("Initializing Controller");
-        LOGGER.info("Controller initialized successfully");
-    }
-
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doGet(request, response);
@@ -38,13 +32,27 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
 
         String commandStr = request.getParameter(ParameterConstants.COMMAND_PARAM);
-
         LOGGER.info("Received command: {}", commandStr);
+
+        request.setAttribute("response", response);
 
         Command command = CommandType.define(commandStr);
         String page = command.execute(request);
-        LOGGER.info("Forwarding to page: {}", page);
 
-        request.getRequestDispatcher(page).forward(request, response);
+        request.removeAttribute("response");
+
+        if (page != null && page.startsWith("redirect:")) {
+            String redirectUrl = page.substring("redirect:".length());
+            response.sendRedirect(redirectUrl);
+            return;
+        }
+
+        if (page != null) {
+            LOGGER.info("Forwarding to page: {}", page);
+            request.getRequestDispatcher(page).forward(request, response);
+        } else {
+            LOGGER.error("Command returned null page!");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }
     }
 }

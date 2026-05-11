@@ -20,7 +20,7 @@ public class ConnectionProxy implements Connection {
     public void close() throws SQLException {
         if (!isClosed) {
             isClosed = true;
-            pool.releaseConnection(target);  // Возвращаем в пул, а не закрываем
+            pool.releaseConnection(target);
         }
     }
 
@@ -29,7 +29,6 @@ public class ConnectionProxy implements Connection {
         return isClosed || target.isClosed();
     }
 
-    // Делегируем все остальные методы целевому соединению
     @Override
     public Statement createStatement() throws SQLException {
         return target.createStatement();

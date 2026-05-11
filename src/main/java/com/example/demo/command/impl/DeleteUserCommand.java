@@ -5,7 +5,9 @@ import com.example.demo.command.PageConstants;
 import com.example.demo.command.AttributeConstants;
 import com.example.demo.controller.ParameterConstants;
 import com.example.demo.entity.User;
+import com.example.demo.event.UserEvent;
 import com.example.demo.exception.DataException;
+import com.example.demo.listener.UserEventListener;
 import com.example.demo.service.UserService;
 import com.example.demo.service.impl.UserServiceImpl;
 import jakarta.servlet.http.HttpServletRequest;
@@ -61,6 +63,11 @@ public class DeleteUserCommand implements Command {
             boolean deleted = userService.deleteUser(userIdToDelete);
 
             if (deleted) {
+                User deletedUser = new User();
+                deletedUser.setLogin("user_id_" + userIdToDelete);
+                UserEvent event = new UserEvent(this, deletedUser, "DELETE_USER_BY_ADMIN");
+                UserEventListener userEventListener = new UserEventListener();
+                userEventListener.onUserAction(event);
                 request.setAttribute(AttributeConstants.MESSAGE_ATTR, "Пользователь успешно удален");
                 LOGGER.info("Administrator {} deleted user with ID: {}", currentUser, userIdToDelete);
             } else {

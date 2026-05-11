@@ -17,6 +17,7 @@ public enum CommandType {
     DELETE_USER("DELETE_USER", new DeleteUserCommand()),
     ADMIN_PANEL("ADMIN_PANEL", new AdminPanelCommand()),
     UPLOAD_AVATAR("UPLOAD_AVATAR", new UploadAvatarCommand()),
+    CHANGE_LANGUAGE("CHANGE_LANGUAGE", new ChangeLanguageCommand()),
     DEFAULT("DEFAULT", new DefaultCommand());
 
     private final String name;

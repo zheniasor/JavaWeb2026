@@ -13,4 +13,5 @@ public final class ParameterConstants {
     public static final String NEW_LOGIN_PARAM = "newLogin";
     public static final String NEW_PASSWORD_PARAM = "newPassword";
     public static final String USER_ID_PARAM = "userId";
+    public static final String LANG_PARAM = "lang";
 }

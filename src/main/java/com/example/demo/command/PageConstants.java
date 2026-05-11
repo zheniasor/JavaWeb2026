@@ -10,4 +10,5 @@ public final class PageConstants {
     public static final String CONFIRMATION_PAGE = "pages/confirmation.jsp";
     public static final String EDIT_PROFILE_PAGE = "pages/editProfile.jsp";
     public static final String ADMIN_PANEL_PAGE = "pages/adminPanel.jsp";
+    public static final String ERROR_500 = "pages/error/error_500.jsp";
 }

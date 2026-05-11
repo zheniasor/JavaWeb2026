@@ -5,7 +5,9 @@ import com.example.demo.command.PageConstants;
 import com.example.demo.command.AttributeConstants;
 import com.example.demo.controller.ParameterConstants;
 import com.example.demo.entity.User;
+import com.example.demo.event.UserEvent;
 import com.example.demo.exception.DataException;
+import com.example.demo.listener.UserEventListener;
 import com.example.demo.service.UserService;
 import com.example.demo.service.impl.UserServiceImpl;
 import com.example.demo.validator.UserValidator;
@@ -42,6 +44,9 @@ public class AddUserCommand implements Command {
             boolean registered = userService.register(user);
 
             if (registered) {
+                UserEvent event = new UserEvent(this, user, "REGISTER");
+                UserEventListener userEventListener = new UserEventListener();
+                userEventListener.onUserAction(event);
                 request.setAttribute("message", "На указанный email отправлено письмо с подтверждением. Пожалуйста, проверьте почту.");
                 LOGGER.info("User registered successfully, confirmation email sent: {}", login);
                 return PageConstants.CONFIRMATION_PAGE;

@@ -1,6 +1,7 @@
 package com.example.demo.db;
 
 import com.example.demo.exception.DataException;
+import com.microsoft.sqlserver.jdbc.SQLServerDriver;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -36,7 +37,7 @@ public class ConnectionPool implements AutoCloseable {
 
     private void initializePool() throws DataException {
         try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            DriverManager.registerDriver(new SQLServerDriver());
             for (int i = 0; i < POOL_SIZE; i++) {
                 freeConnections.add(createConnection());
             }
@@ -64,7 +65,6 @@ public class ConnectionPool implements AutoCloseable {
         activeConnections++;
         LOGGER.debug("Connection obtained. Active: {}, Free: {}", activeConnections, freeConnections.size());
 
-        // Возвращаем Proxy-обертку
         return new ConnectionProxy(conn, this);
     }
 
